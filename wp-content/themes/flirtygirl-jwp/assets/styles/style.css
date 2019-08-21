@@ -351,3 +351,67 @@ PLUGIN STYLES
   margin: 0; }
 
 /*# sourceMappingURL=style.css.map */
+
+/*********************
+FLIRTY GIRL CUSTOMZATIONS
+*********************/
+
+body { color:#242626; }
+body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { }
+
+.h1, h1 { font-size:28px; font-weight:500; }
+.h2, h2 { font-size:24px; font-weight:500; }
+.h3, h3 { font-size:22px; font-weight:500; }
+.h4, h4 { font-size:18px; font-weight:500; }
+.h5, h5 { font-size:16px; font-weight:500; }
+.h6, h6 { font-size:14px; font-weight:500; }
+
+.blk { color:#101010; }
+.blk-bgnd { background-color:#101010; }
+.gry { color:#212121; }
+.gry-bgnd { background-color:#212121; }
+.pnk { color:#ED008D; }
+.pnk-bgnd { background-color:#ED008D; }
+
+.title-bar { display:inherit; text-align:center; }
+
+/* OFF CANVAS CUSTOMZATIONS */
+.position-right { width:91.66667%; /* small-11 */ }
+.off-canvas-content.is-open-right.has-transition-push {
+    -webkit-transform: translateX(-91.66667%);
+    -ms-transform: translateX(-91.66667%);
+    transform: translateX(-91.66667%);
+}
+
+.footer, .footer a { color:#fff; }
+.footer nav .menu li {  }
+
+/*********************
+MEDIA QUERIES
+*********************/
+
+/* Define mobile styles */
+@media only screen {
+  .footer nav .menu li { width:100%; }
+
+} 
+
+/* min-width 641px, medium screens */
+@media only screen and (min-width: 40.063em) {
+
+}
+
+/* min-width 1025px, large screens */
+@media only screen and (min-width: 64.063em) {
+  .footer nav .menu li { width:auto; }
+} 
+
+/* min-width 1441px, xlarge screens */
+@media only screen and (min-width: 90.063em) {
+
+} 
+
+/* min-width 1921px, xxlarge screens */
+@media only screen and (min-width: 120.063em) {
+
+} 
