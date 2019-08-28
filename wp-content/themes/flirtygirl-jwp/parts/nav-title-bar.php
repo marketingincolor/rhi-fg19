@@ -8,9 +8,9 @@ $breakpoint = "medium"; ?>
 		<div class="small-11 medium-12">
 
 			<div class="title-bar" data-responsive-toggle="top-bar-menu" data-hide-for="<?php echo $breakpoint ?>">
-			  <img src="http://satyr.io/240x80/f0f" style="clear:both; display:inherit; margin:auto;">
-			  <div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
-			  <button class="menu-icon" type="button" data-toggle></button>
+				<img src="http://satyr.io/240x80/f0f" style="clear:both; display:inherit; margin:auto;">
+				<div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
+				<button class="menu-icon" type="button" data-toggle></button>
 			</div>
 
 			<div class="top-bar" id="top-bar-menu">
