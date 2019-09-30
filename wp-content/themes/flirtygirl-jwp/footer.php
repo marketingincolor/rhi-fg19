@@ -9,15 +9,8 @@
  ?>
 
 <div class="reveal tiny" id="bookModal" data-reveal data-h-offset="0" data-v-offset="0" style="height:100vh;">
-	<h1>Awesome. I Have It.</h1>
-	<p class="lead">Your couch. It is mine.</p>
-	<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-	<button class="close-button" data-close aria-label="Close modal" type="button">
-		<span aria-hidden="true">&times;</span>
-	</button>
+	<?php get_template_part( 'parts/modal', 'booking' ); ?>
 </div>
-
-
 					
 				<footer class="footer gry-bgnd" role="contentinfo">
 					<div class="grid-container">

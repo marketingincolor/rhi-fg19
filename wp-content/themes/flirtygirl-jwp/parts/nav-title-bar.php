@@ -27,7 +27,7 @@ $breakpoint = "medium"; ?>
 
 		</div>
 
-		<div class="main-booking-cta small-1 show-for-small-only pnk-bgnd" style="height:100vh; position:fixed; right:0; top:0;">
+		<div class="main-booking-cta small-1 show-for-small-only pnk-bgnd" style="height:100%; position:fixed; right:0; top:0;">
 			<div style="transform:rotate(-90deg); width:100vh; height:100%;">
 				<h3 data-toggle="off-canvas" style="text-align:center;">BOOK NOW</h3>
 			</div>
