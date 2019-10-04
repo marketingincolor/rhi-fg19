@@ -1,10 +1,19 @@
 <?php 
 global $wpsl_settings, $wpsl;
 
-$output         = $this->get_custom_css(); 
+//$output         = $this->get_custom_css(); 
+$output = '<style>' . "\r\n";
+$output .= '    #wpsl-stores .wpsl-store-thumb {height:45px !important; width:45px !important;}' . "\r\n";
+$output .= '    #wpsl-stores, #wpsl-direction-details, #wpsl-gmap {height:auto !important;}' . "\r\n";
+$output .= '    #wpsl-gmap .wpsl-info-window {max-width:225px !important;}' . "\r\n";
+$output .= '    .wpsl-input label, #wpsl-radius label, #wpsl-category label {width:95px;}' . "\r\n";
+$output .= '    #wpsl-search-input  {width:179px;}' . "\r\n";
+$output .= '</style>' . "\r\n";
+
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
 
-$output .= '<style> #wpsl-gmap { display:none; }</style>' . "\r\n";
+// Inline hack to HIDE the MAIN MAP DISPLAY when system loads
+//$output .= '<style> #wpsl-gmap { display:none; }</style>' . "\r\n";
 
 $output .= '<h3>Custom Locations Template</h3>' . "\r\n";
 
@@ -61,7 +70,7 @@ if ( $wpsl_settings['reset_map'] ) {
 
 $output .= "\t" . '<div id="wpsl-result-list" class="custom">' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";
-$output .= "\t\t\t" . '<ul></ul>' . "\r\n";
+$output .= "\t\t\t" . '<ul class="grid-x grid-padding-x medium-up-3"></ul>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-direction-details">' . "\r\n";
 $output .= "\t\t\t" . '<ul></ul>' . "\r\n";

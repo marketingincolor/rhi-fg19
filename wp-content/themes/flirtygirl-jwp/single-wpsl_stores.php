@@ -48,17 +48,37 @@ get_header(); ?>
 		                    echo do_shortcode( '[wpsl_hours]' );
 		                ?>
 
+						<?php
+						$appointment_url = get_post_meta( $queried_object->ID, 'wpsl_appointment_url', true );
+						if ( $appointment_url ) {
+						  echo '<p><a href="' . esc_url( $appointment_url ) . '" class="button" target="_blank">' . __( 'BOOK NOW', 'wpsl' ) . '</a></p>';
+						}
+						?>
+
+						<hr>
+						<?php 
+							$term_obj_list = get_the_terms( $queried_object->ID, 'wpsl_store_category' );
+							//print_r($term_obj_list);
+							$terms_string = join(', ', wp_list_pluck($term_obj_list, 'name'));
+							echo $terms_string;
+						?>
+						<hr>
+
 						</div>
 						<div class="small-12 medium-6 cell">
 							<?php echo do_shortcode( '[wpsl_map zoom="15"]' ); ?>
 						</div>
-						<div class="small-12 medium-12 cell">
+
+
+						<!-- <div class="small-12 medium-12 cell">
 							<a href="#" class="button" data-toggle="booking-callout">Book Now</a>
 							<div class="secondary callout is-hidden" id="booking-callout" data-toggler="is-hidden">
 								<p>This is only visible when the above button has been clicked.</p>
 								<iframe src="https://go.booker.com/location/flirtygirllashstudiodallas/service-menu"></iframe>
 							</div>
-						</div>
+						</div> -->
+
+
 					</div>
 
 

@@ -29,7 +29,8 @@
 	    <?php } ?>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+		<script>templateURL = '<?php bloginfo("template_directory"); ?>';</script>
 		<?php wp_head(); ?>
 
 	</head>
@@ -43,7 +44,7 @@
 			
 			<div class="off-canvas-content" data-off-canvas-content>
 				
-				<header class="header" role="banner">
+				<header class="header grid-container full" role="banner">
 							
 					 <!-- This navs will be applied to the topbar, above all content 
 						  To see additional nav styles, visit the /parts directory -->

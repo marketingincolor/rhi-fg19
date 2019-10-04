@@ -375,6 +375,9 @@ body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { }
 
 .title-bar { display:inherit; text-align:center; }
 
+.header.full { background-color: #e6e6e6; }
+.top-bar, .top-bar ul { background-color: inherit; }
+
 /* OFF CANVAS CUSTOMZATIONS */
 .position-right { width:91.66667%; /* small-11 */ }
 .off-canvas-content.is-open-right.has-transition-push {
@@ -385,6 +388,14 @@ body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { }
 
 .footer, .footer a { color:#fff; }
 .footer nav .menu li {  }
+.footer .footbox { border:1px solid #fff; border radius:4px; }
+.footer .footbox .inner-footbox {}
+
+/*********************
+WP STORE LOCATOR CUSTOMZATIONS
+*********************/
+.wpsl-no-results-msg { width:100%; text-align:center; }
+
 
 /*********************
 MEDIA QUERIES

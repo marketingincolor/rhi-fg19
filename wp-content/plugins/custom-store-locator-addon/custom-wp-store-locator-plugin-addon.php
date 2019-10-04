@@ -7,11 +7,72 @@ Author: Marketing In Color
 Author URI: http://marketingincolor.com
 */
 
+
+//add_filter( 'wpsl_include_post_content', '__return_true' );
+// Add POST CONTENT to the JSON data snown on MAP
+
+// Get the CATEGORIES assigned to a single Store Location as an Array
+add_filter( 'wpsl_store_meta', 'custom_store_meta', 10, 2 );
+function custom_store_meta( $store_meta, $store_id ) {
+    $terms = wp_get_post_terms( $store_id, 'wpsl_store_category' );
+    $store_meta['terms'] = '';
+    if ( $terms ) {
+        if ( !is_wp_error( $terms ) ) {
+            if ( count( $terms ) > 1 ) {
+                $location_terms = array();
+
+                foreach ( $terms as $term ) {
+                    $location_terms[] = $term->name;
+                }
+
+                $store_meta['terms'] = implode( ', ', $location_terms );
+            } else {
+                $store_meta['terms'] = $terms[0]->name;    
+            }
+        }
+    }
+    return $store_meta;
+}
+
+// Add additional META information to each store location for Booker Appointment URL
+add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
+function custom_meta_box_fields( $meta_fields ) {
+    $meta_fields[__( 'Additional Information', 'wpsl' )] = array(
+        'phone' => array(
+            'label' => __( 'Tel', 'wpsl' )
+        ),
+        'fax' => array(
+            'label' => __( 'Fax', 'wpsl' )
+        ),
+        'email' => array(
+            'label' => __( 'Email', 'wpsl' )
+        ),
+        'url' => array(
+            'label' => __( 'Url', 'wpsl' )
+        ),
+        'appointment_url' => array(
+            'label' => __( 'Appointment', 'wpsl' )
+        )
+    );
+    return $meta_fields;
+}
+
+// indclude data from appointment_url in JSON response
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields' );
+function custom_frontend_meta_fields( $store_fields ) {
+    $store_fields['wpsl_appointment_url'] = array( 
+        'name' => 'appointment_url',
+        'type' => 'url'
+    );
+    return $store_fields;
+}
+
+
+
+
 // Use Custom Template for Locations Page
 add_filter( 'wpsl_templates', 'custom_templates', 10 );
-
 function custom_templates( $templates ) {
-
     /**
      * The 'id' is for internal use and must be unique ( since 2.0 ).
      * The 'name' is used in the template dropdown on the settings page.
@@ -27,11 +88,14 @@ function custom_templates( $templates ) {
     return $templates;
 }
 
+
 // Apply Custom output to NO RESULTS
 add_filter( 'wpsl_no_results', 'custom_no_results' );
-
 function custom_no_results() {
-    
+    /**
+     * Optionally, instead of the output below, an ACF WYSIWYG component could
+     * be substituted to further customize the data.
+     */
     $output = '<h2>No Salon in your Area!</h2>';
     $output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p><p>Please contact us at <a href="tel:123456">+123456</a> or <a href="mailto:support@mydomain.com">support@mydomain.com</a>.</p>';
     $output .= '<img src="http://satyr.io/512x128/f0f?text=Sample+CTA" alt="demo cta banner"/>';
@@ -40,17 +104,13 @@ function custom_no_results() {
 }
 
 
-
-//add_filter( 'wpsl_include_post_content', '__return_true' );
-
 // Apply Custom output to LISTING
 add_filter( 'wpsl_listing_template', 'custom_listing_template' );
-
+add_filter( 'wpsl_info_window_template', 'custom_listing_template' );
 function custom_listing_template() {
 
     global $wpsl, $wpsl_settings;
-    
-    $listing_template = '<li data-store-id="<%= id %>">' . "\r\n";
+    $listing_template = '<li class="custom-locator cell" data-store-id="<%= id %>">' . "\r\n";
     $listing_template .= "\t\t" . '<div class="wpsl-store-location">' . "\r\n";
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . wpsl_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
@@ -63,6 +123,11 @@ function custom_listing_template() {
     if ( !$wpsl_settings['hide_country'] ) {
         $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
     }
+
+    // Check if the 'appointment_url' contains data before including it.
+    $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p><a href="<%= appointment_url %>">' . __( 'BOOK NOW!', 'wpsl' ) . '</a></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
 
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
     
@@ -77,6 +142,12 @@ function custom_listing_template() {
     //$listing_template .= "\t\t\t" . '<% if ( my_textinput ) { %>' . "\r\n";
     //$listing_template .= "\t\t\t" . '<p><%= my_textinput %></p>' . "\r\n";
     //$listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
+
+
+    $listing_template .= "\t\t\t" . '<% if ( terms ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p>' . __( 'Categories:', 'wpsl' ) . ' <%= terms %></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
+
 
     // Show the phone, fax or email data if they exist.
     if ( $wpsl_settings['show_contact_details'] ) {

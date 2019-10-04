@@ -2,8 +2,7 @@
 // Adjust the breakpoint of the title-bar by adjusting this variable
 $breakpoint = "medium"; ?>
 
-
-<div class="grid-container full">
+<div class="grid-container">
 	<div class="grid-x Xalign-center Xgrid-margin-x Xgrid-padding-x">
 		<div class="small-11 medium-12">
 
@@ -22,6 +21,9 @@ $breakpoint = "medium"; ?>
 				</div>
 				<div class="top-bar-right">
 					<?php joints_top_nav(); ?>
+				</div>
+				<div class="top-bar-right nav-cta">
+					<ul class="menu"><li class="menu-item"><a href="#book-now" class="nav-cta-link">BOOK NOW!</a></li></ul>
 				</div>
 			</div>
 
