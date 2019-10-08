@@ -4,7 +4,7 @@ $breakpoint = "medium"; ?>
 
 <div class="grid-container">
 	<div class="grid-x Xalign-center Xgrid-margin-x Xgrid-padding-x">
-		<div class="small-11 medium-12">
+		<div class="small-12">
 
 			<div class="title-bar" data-responsive-toggle="top-bar-menu" data-hide-for="<?php echo $breakpoint ?>">
 				<img src="http://satyr.io/240x80/f0f" style="clear:both; display:inherit; margin:auto;">
@@ -27,12 +27,6 @@ $breakpoint = "medium"; ?>
 				</div>
 			</div>
 
-		</div>
-
-		<div class="main-booking-cta small-1 show-for-small-only pnk-bgnd" style="height:100%; position:fixed; right:0; top:0;">
-			<div style="transform:rotate(-90deg); width:100vh; height:100%;">
-				<h3 data-toggle="off-canvas" style="text-align:center;">BOOK NOW</h3>
-			</div>
 		</div>
 
 	</div>

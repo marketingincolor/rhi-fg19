@@ -45,3 +45,28 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 
 // Customize the WordPress admin
 // require_once(get_template_directory().'/functions/admin.php'); 
+
+
+
+
+
+// Flourish Shortcode - [flourish title='Section Title' color=gray]
+function shortcode_DisplayFlourish($params = array()) {
+$template_url = get_template_directory_uri();
+  // default parameters
+  extract(shortcode_atts(array(
+    'title' => 'Defatult Title',
+    'color' => 'gray' // or black or white
+  ), $params));
+
+$flourish = '<div class="'.$color.'-flourish grid-x align-justify">';
+$flourish .= '<div class="cell shrink"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-left.png" alt="" width="28" height="23"></div>';
+$flourish .= '<div class="cell auto"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
+$flourish .= '<div class="cell shrink"><h4 class="flourish" style="padding:0em .5em;">'.$title.'</h4></div>';
+$flourish .= '<div class="cell auto"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
+$flourish .= '<div class="cell shrink"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-right.png" alt="" width="28" height="23"></div>';
+$flourish .= '</div>';
+  return $flourish;
+}
+add_shortcode('flourish', 'shortcode_DisplayFlourish');
+
