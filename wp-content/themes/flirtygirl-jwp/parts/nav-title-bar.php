@@ -7,7 +7,7 @@ $breakpoint = "medium"; ?>
 		<div class="small-12">
 
 			<div class="title-bar" data-responsive-toggle="top-bar-menu" data-hide-for="<?php echo $breakpoint ?>">
-				<img src="http://satyr.io/240x80/f0f" style="clear:both; display:inherit; margin:auto;">
+				<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;"></a>
 				<div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
 				<button class="menu-icon" type="button" data-toggle></button>
 			</div>
@@ -16,7 +16,7 @@ $breakpoint = "medium"; ?>
 				<div class="top-bar-left show-for-<?php echo $breakpoint ?>">
 					<ul class="menu">
 						<!-- <li><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li> -->
-						<li><a href="<?php echo home_url(); ?>"><img src="http://satyr.io/240x80/f0f" style="clear:both; display:inherit; margin:auto;"></a></li>
+						<li><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;"></a></li>
 					</ul>
 				</div>
 				<div class="top-bar-right">

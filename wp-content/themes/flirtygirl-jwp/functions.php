@@ -50,23 +50,24 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 
 
 
-// Flourish Shortcode - [flourish title='Section Title' color=gray]
-function shortcode_DisplayFlourish($params = array()) {
+// Heading Flourish Shortcode - [flourish title='Section Title' color=gray]
+function heading_display_flourish($params = array()) {
 $template_url = get_template_directory_uri();
   // default parameters
   extract(shortcode_atts(array(
     'title' => 'Defatult Title',
-    'color' => 'gray' // or black or white
+    'color' => 'gray', // or black or white
+    'type' => 'h2' // any from h1 thru h6
   ), $params));
 
-$flourish = '<div class="'.$color.'-flourish grid-x align-justify">';
-$flourish .= '<div class="cell shrink"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-left.png" alt="" width="28" height="23"></div>';
-$flourish .= '<div class="cell auto"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
-$flourish .= '<div class="cell shrink"><h4 class="flourish" style="padding:0em .5em;">'.$title.'</h4></div>';
-$flourish .= '<div class="cell auto"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
-$flourish .= '<div class="cell shrink"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-right.png" alt="" width="28" height="23"></div>';
+$flourish = '<div class="'.$color.'-flourish grid-x align-justify align-middle">';
+$flourish .= '<div class="cell shrink show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-left.png" alt="" width="28" height="23"></div>';
+$flourish .= '<div class="cell auto show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
+$flourish .= '<div class="cell small-auto medium-shrink"><'.$type.' class="'.$color.' flourish-text">'.$title.'</'.$type.'></div>';
+$flourish .= '<div class="cell auto show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
+$flourish .= '<div class="cell shrink show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-right.png" alt="" width="28" height="23"></div>';
 $flourish .= '</div>';
   return $flourish;
 }
-add_shortcode('flourish', 'shortcode_DisplayFlourish');
+add_shortcode('flourish', 'heading_display_flourish');
 

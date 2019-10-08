@@ -7,20 +7,14 @@
 
 get_header(); ?>
 
-	<div class="cta content grid-container full" style="display:none;">
-		<div class="inner-content grid-x NOgrid-margin-x NOgrid-padding-x">
-		    <div class="small-12 medium-12 cell" >
-				<img src="http://satyr.io/1400x620/f0f?text=Homepage+Slider">
-			</div>
-		</div>
-	</div>
+	<?php get_template_part( 'parts/content', 'slider' ); ?>
 	
 <?php if (is_front_page()) : ?>
 
-	<?php get_template_part( 'parts/content', 'slider' ); ?>
+	<?php get_template_part( 'parts/content', 'services' ); ?>
+	<?php get_template_part( 'parts/content', 'community' ); ?>
 
-<?php endif; ?>
-
+<?php else : ?>
 
 	<div class="content grid-container">
 	
@@ -39,6 +33,9 @@ get_header(); ?>
 		</div> <!-- end #inner-content -->
 
 	</div> <!-- end #content -->
+
+<?php endif; ?>
+
 
 <?php if (!is_page('locations')) : ?>
 	<div class="cta content grid-container">

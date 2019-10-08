@@ -5,6 +5,7 @@
  */
 ?>
 
+      <?php if( have_rows('slider') ): ?>
 <div class="grid-container-fluid home-slider"> 
 
   <div class="orbit" role="region" aria-label="Main Site Slider" data-orbit>
@@ -16,9 +17,8 @@
       </div>
       <ul class="orbit-container">
 
-      <?php if( have_rows('slider') ):
 
-        $count = 0;
+      <?php $count = 0;
         $rowcount = get_field('slider');
         if (is_array($rowcount)) { $count = count($rowcount); }
 
@@ -48,10 +48,20 @@
       <?php } ?>
     </nav>
 
-      <?php else : // no rows found
-      endif; ?>
 
   </div>
 
 </div>
 
+      <?php else : // no rows found ?>
+
+
+      <div class="cta content grid-container full">
+        <div class="inner-content grid-x NOgrid-margin-x NOgrid-padding-x">
+            <div class="small-12 medium-12 cell" >
+            <img src="http://satyr.io/1400x580/f0f?text=Feature Image">
+          </div>
+        </div>
+      </div>
+
+      <?php endif; ?>
