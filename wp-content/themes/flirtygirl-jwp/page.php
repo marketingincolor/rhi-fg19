@@ -42,12 +42,12 @@ get_header(); ?>
 
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 
-		    <div class="small-12 medium-12 cell" id="book-now">
-
-				<h1>Insert Book Now CTA Here</h1>
+		    <div class="small-12 medium-12 cell">
+		    	<div id="book-now">
+				<h1>Book Now!</h1>
 				<!-- <p style="display:inline-block;"><button class="button" data-open="bookModal">Book Now</button></p>	 -->
 				<?php echo do_shortcode('[wpsl template="custom"]'); ?>
-
+				</div>
 			</div>
 
 		</div>

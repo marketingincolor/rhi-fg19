@@ -3,6 +3,11 @@
  * Template part for displaying SLIDER images on Home Page
  * slider 
  */
+//global $post;
+$page_hero_title = get_field('hero_title'); //get_the_title($post->ID);
+$page_hero_meta = get_field('hero_description'); //get_the_content($post->ID); 
+$page_hero_image = get_the_post_thumbnail_url($post->ID, 'full'); 
+//echo "<hr>" . $page_hero_title . "<hr>". $page_hero_image . "<hr>";
 ?>
 
       <?php if( have_rows('slider') ): ?>
@@ -53,15 +58,29 @@
 
 </div>
 
-      <?php else : // no rows found ?>
+      <?php //else : // no rows found ?>
+      <?php elseif($page_hero_image) : // no rows found ?>
 
 
-      <div class="cta content grid-container full">
-        <div class="inner-content grid-x NOgrid-margin-x NOgrid-padding-x">
-            <div class="small-12 medium-12 cell" >
-            <img src="http://satyr.io/1400x580/f0f?text=Feature Image">
-          </div>
-        </div>
+
+<section class="page-hero" style="background-image: url(<?php echo $page_hero_image; ?>);">
+  <div class="grid-container h-100">
+    <div class="grid-x h-100">
+      <div class="small-10 small-offset-1 medium-8 medium-offset-1 align-self-middle cell">
+
+      <?php global $post;     // if outside the loop
+      if ( is_page() && $post->post_parent ) { ?>
+        <h4><?php echo $page_hero_meta; ?></h4>
+        <h2><?php echo $page_hero_title; ?></h2>
+      <?php } else { ?>
+        <h2><?php echo $page_hero_title; ?></h2>
+        <h4><?php echo $page_hero_meta; ?></h4>
+      <?php } ?>
+
       </div>
+    </div>
+  </div>
+</section>
 
+      <?php else : // no rows found ?>
       <?php endif; ?>

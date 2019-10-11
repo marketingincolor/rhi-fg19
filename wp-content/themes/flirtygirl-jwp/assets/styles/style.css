@@ -358,6 +358,7 @@ FLIRTY GIRL CUSTOMZATIONS
 
 body { color:#000000; }
 body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: 'Ubuntu', sans-serif; }
+a, a:focus, a:hover { color:#000000; }
 
 .h1, h1 { font-size:42px; font-weight:400; }
 .h2, h2 { font-size:36px; font-weight:500; }
@@ -372,14 +373,27 @@ body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: 'Ubunt
 .gry-bgnd { background-color:#ababab; }
 .dk-gry { color:#2a2a2a; }
 .dk-gry-bgnd { background-color:#2a2a2a; }
-.pnk { color:#d2007d; }
-.pnk-bgnd { background-color:#d2007d; }
+.pnk { color:#ec008c; }
+.pnk-bgnd { background-color:#ec008c; }
 
+.h-100 { height:100%; }
+.m-rem-20 { margin:2rem 0rem; }
+.m-rem-22 { margin:2rem; }
+.p-rem-20 { padding:2rem 0rem; }
+.p-rem-22 { padding:2rem; }
 .title-bar { display:inherit; text-align:center; }
 
 .header.full { background-image: url(../images/fg-nav-header.jpg); background-position:top center; background-size:cover;  }
 .top-bar, .top-bar ul { background-color: inherit; }
 
+.menu .active a { background:none; color:#ec008c; }
+.menu a { background:none; color:#000; padding: 1.5rem 1rem 0rem !important; }
+
+.page .page-hero, 
+.page-parent .page-hero { height: 570px; background-position: center center; background-size: cover; background-repeat: no-repeat; }
+.page-child .page-hero { height: 285px; background-position: center center; background-size: cover; background-repeat: no-repeat; }
+
+.page-hero h2, .page-hero h4 { color:#fff; }
 
 .flourish-text { text-align:center; margin:unset; padding:0em .5em; }
 .gray.flourish-text, .black.flourish-text { color:#000; }
@@ -398,15 +412,50 @@ body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: 'Ubunt
 .slide-cta-button  { color:#fff; background-color:transparent; }
 .cta-button:hover, .slide-cta-button:hover { color:#fff; background-color:rgb(236, 0, 140); }
 
-.community { padding:4em 0em; background-image: url(../images/fg-community-bgnd.jpg); background-position:bottom center; background-size:cover; background-attachment:fixed; }
+.content { margin-top:4rem; }
 
+.service-grid .circle { border:4px solid rgb(171, 171, 171); border-radius:100%; text-align:center; }
+.service-grid .circle-text, .service-grid .circle-image { /*padding:0em;*/ }
+.service-grid .circle-text .circle { display:flex; justify-content:center; align-items:center; /*height:100%;*/ height: auto; position: relative; width: 100%; padding-top: 100%; margin-top: 125px; }
+.service-grid .circle-text .circle .circle-content { /*padding:3em 3em;*/ position: absolute; top: 0; left: 0; bottom: 0; right: 0; }
+.service-grid .circle .circle-content h3 { margin-bottom:0em; }
+.service-grid .circle .circle-content p { line-height:1.2; margin-bottom:0.5em; }
+.service-grid .circle-image .circle img { border-radius:100%; }
+.service-grid .pic-circle img { border-radius:50%; height:180px; border:4px solid rgb(171, 171, 171); }
+.service-grid .circle-text { /*padding:10em 2em 2em;*/ padding:2em; }
+.service-grid .pic-circle { position:relative; height:1px; /*top:-140px;*/ top:0; z-index:5; }
+
+.pic-circle img { border-radius:50%; height:180px; border:4px solid rgb(171, 171, 171); }
+
+.community { 
+  padding:6em 0em; 
+  background-image: url(../images/fg-community-bgnd.jpg); 
+  background-position:bottom center; 
+  background-size:cover; 
+  background-attachment:fixed; 
+}
+.community h3 { color:#fff; text-align:center; padding:3rem; }
+
+.aftercare { 
+  padding:6em 0em; 
+  background-image: url(../images/fg-lashcare-bgnd.jpg); 
+  background-position:bottom center; 
+  background-size:cover; 
+  background-attachment:initial; 
+}
 .services { padding:4em 0em; }
 .services .headline.gray { color:rgb(171, 171, 171); text-align:center; }
 .services .service-section { padding:1em 0em; }
 .services .service-section .circle { border:4px solid rgb(171, 171, 171); border-radius:100%; text-align:center; }
-.services .service-section .circle .circle-content { padding:2em; }
-.services .service-section .circle .circle-content p { line-height:1.2; }
-.services .service-section .circle img { border-radius:100%; }
+.services .service-section .circle-text, .services .service-section .circle-image { padding:0em; }
+.services .service-section .circle-text .circle { display:flex; justify-content:center; align-items:center; height:100%; }
+.services .service-section .circle-text .circle .circle-content { padding:2em 1em; }
+.services .service-section .circle-text .circle .circle-content h3 { margin-bottom:0em; }
+.services .service-section .circle-text .circle .circle-content p { line-height:1.2; margin-bottom:0.5em; }
+.services .service-section .circle-image .circle img { border-radius:100%; }
+
+#book-now { margin-top:4em; margin-bottom:4em; border:4px solid rgb(236, 0, 140); text-align:center; }
+#book-now h1 { text-transform:uppercase; color:#ec008c; }
 
 /* OFF CANVAS CUSTOMZATIONS */
 .position-right { width:91.66667%; /* small-11 */ }
@@ -417,17 +466,22 @@ body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: 'Ubunt
 }
 /* FOOTER CUSTOMIZATIONS */
 .footer { padding:4em 0em; background-image: url(../images/fg-footer-bgnd.jpg); background-position:bottom center; background-size:cover; }
+.footer-cta { background-image: url(../images/fg-footer-cta-bgnd.png); background-position:bottom center; background-size:cover; color:#000;}
 .footer, .footer a { color:#fff; }
 .footer nav .menu li {  }
 .footer .copyright { font-size:14px; margin:3em 0em 0em; }
 .footer .footbox { border:1px solid #fff; border radius:4px; }
 .footer .footbox .inner-footbox {}
+.footer .site-social img { max-height:36px; }
+.footer #footer-links .link { font-size:20px; }
+.footer #footer-links .link img { padding-right:1em; }
 
 /*********************
 WP STORE LOCATOR CUSTOMZATIONS
 *********************/
 .wpsl-no-results-msg { width:100%; text-align:center; }
 
+#wpsl-wrap #wpsl-result-list li { border-bottom:unset; }
 
 /*********************
 ORBIT SLIDER
@@ -474,6 +528,25 @@ ORBIT SLIDER
 
 
 /*********************
+OWL CAROUSEL CUSTOMIZATIONS
+*********************/
+#instagram-carousel .owl-prev, #instagram-carousel .owl-next { width: 15px; height: 70px; position: absolute; top: 25%; display: block !important; }
+#instagram-carousel .owl-prev { margin-left: -20px; }
+#instagram-carousel .owl-next { right: -25px; }
+#instagram-carousel .owl-prev i, #instagram-carousel .owl-next i {transform : scale(2,3); color: #ec008c;} 
+#instagram-carousel .owl-item img { max-height:200px; width:auto; margin:auto; }
+
+#aftercare-carousel .owl-prev, #aftercare-carousel .owl-next { width: 15px; height: 70px; position: absolute; top: 25%; display: block !important; }
+#aftercare-carousel .owl-prev { margin-left: -20px; }
+#aftercare-carousel .owl-next { right: -25px; }
+#aftercare-carousel .owl-prev i, #aftercare-carousel .owl-next i {transform : scale(2,3); color: #ec008c;} 
+
+#browcare-carousel .owl-prev, #browcare-carousel .owl-next { width: 15px; height: 70px; position: absolute; top: 25%; display: block !important; }
+#browcare-carousel .owl-prev { margin-left: -20px; }
+#browcare-carousel .owl-next { right: -25px; }
+#browcare-carousel .owl-prev i, #browcare-carousel .owl-next i {transform : scale(2,3); color: #ec008c;} 
+
+/*********************
 MEDIA QUERIES
 *********************/
 
@@ -481,20 +554,24 @@ MEDIA QUERIES
 @media only screen {
   .footer nav .menu li { width:100%; }
   .orbit-figure { min-height:480px; }
-  .orbit-caption { opacity: 1; padding:.25rem; width:100%; bottom:unset; }
+  .orbit-caption { opacity: 1; padding:.25rem; width:100%; bottom:unset; background-color:rgb(16, 16, 16); }
+  .services .service-section .circle-text, .services .service-section .circle-image { padding:2em; }
+  .services .service-section .circle-text { height: calc(100vw - 1.25rem); }
 } 
 
 /* min-width 641px, medium screens */
 @media only screen and (min-width: 40.063em) {
   .orbit-figure { min-height:480px; }
-  .orbit-caption { opacity: 1; padding:1rem; width:100%; bottom:unset; }
+  .orbit-caption { opacity: 1; padding:1rem; width:100%; bottom:unset; height:unset; }
+  .services .service-section .circle-text, .services .service-section .circle-image { padding:1em; }
+  .services .service-section .circle-text { height: inherit; }
 }
 
 /* min-width 1025px, large screens */
 @media only screen and (min-width: 64.063em) {
   .footer nav .menu li { width:auto; }
   .orbit-figure { min-height:480px; }
-  .orbit-caption { opacity: 0.969; padding:2rem; width:50%; bottom:0; }
+  .orbit-caption { opacity: 0.969; padding:2rem; width:50%; bottom:0; height:100%; background-color:transparent; }
 
 } 
 

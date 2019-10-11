@@ -59,9 +59,57 @@ function joints_footer_links() {
 		'menu_class'		=> 'menu vertical',				// Adding custom nav class
 		'theme_location'	=> 'footer-links',		// Where it's located in the theme
 		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
+		'fallback_cb'		=> '',					// Fallback function
+		'walker'			=> new Custom_Footer_Walker()
 	));
 } /* End Footer Menu */
+
+
+
+class Custom_Footer_Walker extends Walker_Nav_Menu {
+	// Displays start of an element. E.g '<li> Item Name'
+    // @see Walker::start_el()
+    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+    	$object = $item->object;
+    	$type = $item->type;
+    	$title = $item->title;
+    	$description = $item->description;
+    	$permalink = $item->url;
+
+		$template_url = get_template_directory_uri();
+		$icon = '';
+		if (in_array('fran-icon', $item->classes)) {
+		    $icon = '<img src="'.$template_url.'/assets/images/fg-footer-icon-franchising.svg">';
+		}
+		if (in_array('car-icon', $item->classes)) {
+		    $icon = '<img src="'.$template_url.'/assets/images/fg-footer-icon-career.svg">';
+		}
+		if (in_array('log-icon', $item->classes)) {
+		    $icon = '<img src="'.$template_url.'/assets/images/fg-footer-icon-login.svg">';
+		}
+
+		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+		//Add SPAN if no Permalink
+		if( $permalink && $permalink != '#' ) {
+			$output .= '<a class="link" href="' . $permalink . '">'.$icon;
+		} else {
+			$output .= '<span>';
+		}
+
+		$output .= $title;
+		if( $description != '' && $depth == 0 ) {
+			$output .= '<small class="description">' . $description . '</small>';
+		}
+		if( $permalink && $permalink != '#' ) {
+			$output .= '</a>';
+		} else {
+			$output .= '</span>';
+		}
+    }
+}
+
+
+
 
 // Header Fallback Menu
 function joints_main_nav_fallback() {

@@ -10,3 +10,60 @@ jQuery('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]').each(function(){i
 /*
 Insert Custom JS Below
 */
+
+
+
+
+
+jQuery(document).ready(function(){
+	jQuery("#instagram-carousel").owlCarousel({
+		//items:4,
+		loop:true,
+		margin:20,
+		nav:true,
+		responsiveClass:true,
+		responsive:{
+			0:{
+				items:1,
+				nav:true
+			},
+			600:{
+				items:2,
+				nav:true
+			},
+			1000:{
+				items:4,
+				nav:true
+			}
+		},
+		//dots:true,
+		autoplay:true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:true,
+		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+	});
+
+	jQuery("#aftercare-carousel").owlCarousel({
+		items:1,
+		loop:true,
+		margin:20,
+		nav:true,
+		//dots:true,
+		autoplay:true,
+		autoplayTimeout:5000,
+		autoplayHoverPause:true,
+		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+	});
+
+	jQuery("#browcare-carousel").owlCarousel({
+		items:1,
+		loop:true,
+		margin:20,
+		nav:true,
+		//dots:true,
+		autoplay:true,
+		autoplayTimeout:5000,
+		autoplayHoverPause:true,
+		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+	});
+});

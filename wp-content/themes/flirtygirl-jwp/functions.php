@@ -48,16 +48,36 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 
 
 
+// ACF FUNCTIONS = Add Options Page to site (ACF PLUGIN MUST BE INSTALLED!)
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site Settings',
+		'menu_title'	=> 'Site Settings',
+		'menu_slug' 	=> 'site-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Community',
+		'menu_title'	=> 'Community',
+		'parent_slug'	=> 'site-settings',
+	));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Aftercare',
+		'menu_title'	=> 'Aftercare',
+		'parent_slug'	=> 'site-settings',
+	));
+}
 
-
-// Heading Flourish Shortcode - [flourish title='Section Title' color=gray]
+// Heading Flourish Shortcode - [flourish title="Section Title" type="h3" color="gray"]
 function heading_display_flourish($params = array()) {
 $template_url = get_template_directory_uri();
   // default parameters
   extract(shortcode_atts(array(
-    'title' => 'Defatult Title',
+    'title' => 'Lorem Ipsum Sit Dolor', // the title is basically required!
     'color' => 'gray', // or black or white
-    'type' => 'h2' // any from h1 thru h6
+    'type' => 'h2', // any from h1 thru h6
+    'alt' => 'true' // true to display mobile verion, false to ONLY display desktop
   ), $params));
 
 $flourish = '<div class="'.$color.'-flourish grid-x align-justify align-middle">';
@@ -66,6 +86,10 @@ $flourish .= '<div class="cell auto show-for-medium"><img src="'.$template_url.'
 $flourish .= '<div class="cell small-auto medium-shrink"><'.$type.' class="'.$color.' flourish-text">'.$title.'</'.$type.'></div>';
 $flourish .= '<div class="cell auto show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-line.png" alt="" width="100%" height="23" style="height:23px;"></div>';
 $flourish .= '<div class="cell shrink show-for-medium"><img src="'.$template_url.'/assets/images/flourish-'.$color.'-right.png" alt="" width="28" height="23"></div>';
+if ($alt == 'true') {
+$flourish .= '<div class="cell small-auto hide-for-medium text-center"><img src="'.$template_url.'/assets/images/flourish-mobile.png" alt=""></div>';	
+}
+
 $flourish .= '</div>';
   return $flourish;
 }
