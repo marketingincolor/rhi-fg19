@@ -46,7 +46,15 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 // Customize the WordPress admin
 // require_once(get_template_directory().'/functions/admin.php'); 
 
-
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+global $post;
+if ( isset( $post ) ) {
+$classes[] = $post->post_type . '-' . $post->post_name;
+}
+return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
 
 // ACF FUNCTIONS = Add Options Page to site (ACF PLUGIN MUST BE INSTALLED!)
 if( function_exists('acf_add_options_page') ) {

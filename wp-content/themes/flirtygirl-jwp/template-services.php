@@ -21,7 +21,7 @@ get_header(); ?>
 			</div>
 
 		<?php while ( have_rows('eyelash_extensions') ) : the_row(); ?>
-		    <div class="cell small-9 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -55,7 +55,7 @@ get_header(); ?>
 			</div>
 
 		<?php while ( have_rows('eyelash_enhancements') ) : the_row(); ?>
-		    <div class="cell small-9 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -89,7 +89,7 @@ get_header(); ?>
 			</div>
 
 		<?php while ( have_rows('brow_services') ) : the_row(); ?>
-		    <div class="cell small-9 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -142,10 +142,13 @@ get_header(); ?>
 	<div class="cta custom-content grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 		    <div class="small-12 medium-12 cell">
-		    	<div id="book-now">
-				<h1>Book Now!</h1>
+		    	<div class="book-now" id="booknow">
+				<!-- <h1>Book Now!</h1>
+				<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3> -->
 				<!-- <p style="display:inline-block;"><button class="button" data-open="bookModal">Book Now</button></p>	 -->
-				<?php echo do_shortcode('[wpsl template="custom"]'); ?>
+				<h1>Book Now!</h1>
+				<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3>
+				<?php echo do_shortcode('[wpsl auto_locate="true" template="custom"]'); ?>
 				</div>
 			</div>
 		</div>

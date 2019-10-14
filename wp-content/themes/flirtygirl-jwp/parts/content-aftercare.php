@@ -19,12 +19,10 @@ $aftercare_headline = get_field( 'aftercare_headline', 'option' );
 				if( have_rows('aftercare_carousel', 'option') ):
 				    while ( have_rows('aftercare_carousel', 'option') ) : the_row(); ?>
 
-
-					
 					<div class="owl-carousel-container grid-container" style="padding:2em 0em;">
 					<div class="grid-x grid-margin-x grid-padding-x">
 						<div class="small-auto medium-shrink">
-							<img style="padding:2rem;" src="<?php the_sub_field('slide_image'); ?>">
+							<img style="padding:0rem 2rem;" src="<?php the_sub_field('slide_image'); ?>">
 						</div>
 						<div class="small-10 small-offset-1 medium-6 medium-offset-0">
 							<h4><?php the_sub_field('slide_title'); ?></h4>
@@ -33,7 +31,6 @@ $aftercare_headline = get_field( 'aftercare_headline', 'option' );
 						</div>
 					</div>
 					</div>
-
 
 				<?php
 				    endwhile;

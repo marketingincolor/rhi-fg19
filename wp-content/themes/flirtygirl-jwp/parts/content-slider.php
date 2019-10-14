@@ -9,10 +9,8 @@ $page_hero_meta = get_field('hero_description'); //get_the_content($post->ID);
 $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full'); 
 //echo "<hr>" . $page_hero_title . "<hr>". $page_hero_image . "<hr>";
 ?>
-
       <?php if( have_rows('slider') ): ?>
 <div class="grid-container-fluid home-slider"> 
-
   <div class="orbit" role="region" aria-label="Main Site Slider" data-orbit>
 
     <div class="orbit-wrapper">
@@ -21,7 +19,6 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
         <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&rsaquo;</button>
       </div>
       <ul class="orbit-container">
-
 
       <?php $count = 0;
         $rowcount = get_field('slider');
@@ -36,7 +33,9 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
               <div class="orbit-caption-meta medium-10 medium-offset-1">
               <h2><?php the_sub_field('slide_title'); ?></h2>
               <h4><?php the_sub_field('slide_description'); ?></h4>
+            <?php if ( get_sub_field('slide_link') ) : ?>
               <p><a href="<?php the_sub_field('slide_link'); ?>" class="slide-cta-button"><?php the_sub_field('slide_button'); ?></a></p>
+            <?php endif; ?>
               </div>
             </figcaption>
           </figure>
@@ -53,20 +52,18 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
       <?php } ?>
     </nav>
 
-
   </div>
-
 </div>
 
       <?php //else : // no rows found ?>
       <?php elseif($page_hero_image) : // no rows found ?>
 
-
-
 <section class="page-hero" style="background-image: url(<?php echo $page_hero_image; ?>);">
+<img class="top-sep" src="<?php echo get_template_directory_uri(); ?>/assets/images/sub-page-separator.png" style="display:none;">
   <div class="grid-container h-100">
     <div class="grid-x h-100">
-      <div class="small-10 small-offset-1 medium-8 medium-offset-1 align-self-middle cell">
+
+      <div class="small-10 small-offset-1 medium-6 medium-offset-0 align-self-middle cell">
 
       <?php global $post;     // if outside the loop
       if ( is_page() && $post->post_parent ) { ?>
@@ -78,6 +75,8 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
       <?php } ?>
 
       </div>
+
+
     </div>
   </div>
 </section>

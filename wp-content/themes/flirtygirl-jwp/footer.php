@@ -18,7 +18,7 @@
 							
 							<div class="small-12 medium-4 large-4 cell footbox">
 								<div class="inner-footbox">
-								<nav role="navigation" style="margin-left:25%;">
+								<nav role="navigation" style="margin-left:25%; padding-top:25%;">
 		    						<?php joints_footer_links(); ?>
 		    					</nav>
 		    					</div>

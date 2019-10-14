@@ -3,7 +3,7 @@
 $breakpoint = "medium"; ?>
 <style>
 .home-icon, .lash-icon, .brow-icon, .loc-icon, .blog-icon { background-repeat: no-repeat; background-position: top center; /*padding-top: 1em;*/ height:50px; }
-.book-icon { background-repeat: no-repeat; padding-left:2rem; background-position: left; height:44px; font-weight:500; display:table; max-width:6em; }
+.book-icon { background-repeat: no-repeat; padding-left:2rem; background-position: left; height:44px; font-weight:500; display:table; max-width:6em; margin-top:.75em; }
 .book-icon a { color:#fff; font-size:1.375em; }
 .home-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-home.svg'); }
 .lash-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-lashes.svg'); }
@@ -12,10 +12,10 @@ $breakpoint = "medium"; ?>
 .loc-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-locations.svg'); }
 .book-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-book-now-icon.svg'); }
 
-.home-icon.current-page-ancestor, .lash-icon.current-page-ancestor, .brow-icon.current-page-ancestor, .blog-icon.current-page-ancestor, .loc-icon.current-page-ancestor, .home-icon.active, .lash-icon.active, .brow-icon.active, .blog-icon.active, .loc-icon.active, .home-icon:hover, .lash-icon:hover, .brow-icon:hover, .blog-icon:hover, .loc-icon:hover { filter: invert(0.3) sepia(1) saturate(55) hue-rotate(309.6deg) brightness(0.88); }
+.home-icon.current-page-ancestor, .lash-icon.current-page-ancestor, .brow-icon.current-page-ancestor, .blog-icon.current-page-ancestor, .loc-icon.current-page-ancestor, .home-icon.active, .lash-icon.active, .brow-icon.active, .blog-icon.active, .loc-icon.active, .home-icon:hover, .lash-icon:hover, .brow-icon:hover, .blog-icon:hover, .loc-icon:hover, #footer-links .link:hover { filter: invert(0.3) sepia(1) saturate(55) hue-rotate(309.6deg) brightness(0.88); }
 
 .nav-cta { background-color:#ec008c; float:right; height:100%; }
-
+.nav-cta-link { padding-top:0 !important; }
 
 .menu-item.current-page-item {  }
 .menu-item.current-page-ancestor {  }
@@ -45,16 +45,22 @@ $breakpoint = "medium"; ?>
 
 				<!-- nav cta was here -->
 				<div class="top-bar-alt nav-cta show-for-<?php echo $breakpoint ?>" id="top-bar-menu2" style="position:absolute; top:0px; height:107px; width:24em; right:-12em; padding:1em;">
-					<ul class="menu"><li class="menu-item book-icon"><a href="#book-now" class="nav-cta-link">BOOK NOW!</a></li></ul>
+					<ul class="menu"><li class="menu-item book-icon"><a href="#booknow" class="nav-cta-link">BOOK NOW!</a></li></ul>
 				</div>
 
 			</div>
 
 		</div>
 
+		<div class="main-booking-cta small-1 show-for-small-only pnk-bgnd" style="height:100vh; position:fixed; right:0; top:0; z-index:20;">
+			<div style="transform:rotate(-90deg); width:100vh; height:100%;">
+				<h3 data-toggle="off-canvas" style="text-align:center; color:#fff;">BOOK NOW</h3>
+			</div>
+		</div>
+
 	</div>
 </div>
 
 				<div class="top-bar-alt nav-cta2 show-for-medium" id="top-bar-menu2" style="display:none; background-color:red; width:10em; height:105px; position:absolute; top:0; right:0;">
-					<ul class="menu"><li class="menu-item book-icon"><a href="#book-now" class="nav-cta-link">BOOK NOW!</a></li></ul>
+					<ul class="menu"><li class="menu-item book-icon"><a href="#booknow" class="nav-cta-link">BOOK NOW!</a></li></ul>
 				</div>

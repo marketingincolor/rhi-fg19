@@ -37,29 +37,32 @@ function custom_store_meta( $store_meta, $store_id ) {
 // Add additional META information to each store location for Booker Appointment URL
 add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
 function custom_meta_box_fields( $meta_fields ) {
-    $meta_fields[__( 'Additional Information', 'wpsl' )] = array(
-        'phone' => array(
-            'label' => __( 'Tel', 'wpsl' )
+    $meta_fields[__( 'Other', 'wpsl' )] = array(
+        'location_name' => array(
+            'label' => __( 'Location Name', 'wpsl' )
         ),
-        'fax' => array(
-            'label' => __( 'Fax', 'wpsl' )
+        'location_ig' => array(
+            'label' => __( 'Instagram', 'wpsl' )
         ),
-        'email' => array(
-            'label' => __( 'Email', 'wpsl' )
+        'location_fb' => array(
+            'label' => __( 'Facebook', 'wpsl' )
         ),
-        'url' => array(
-            'label' => __( 'Url', 'wpsl' )
+        'location_tw' => array(
+            'label' => __( 'Twitter', 'wpsl' )
+        ),
+        'location_yt' => array(
+            'label' => __( 'YouTube', 'wpsl' )
         ),
         'appointment_url' => array(
-            'label' => __( 'Appointment', 'wpsl' )
+            'label' => __( 'Appointment URL', 'wpsl' )
         )
     );
     return $meta_fields;
 }
 
 // indclude data from appointment_url in JSON response
-add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields' );
-function custom_frontend_meta_fields( $store_fields ) {
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_app' );
+function custom_frontend_meta_fields_app( $store_fields ) {
     $store_fields['wpsl_appointment_url'] = array( 
         'name' => 'appointment_url',
         'type' => 'url'
@@ -67,8 +70,50 @@ function custom_frontend_meta_fields( $store_fields ) {
     return $store_fields;
 }
 
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_name' );
+function custom_frontend_meta_fields_name( $store_fields ) {
+    $store_fields['wpsl_location_name'] = array( 
+        'name' => 'location_name',
+        'type' => 'text'
+    );
+    return $store_fields;
+}
 
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_ig' );
+function custom_frontend_meta_fields_ig( $store_fields ) {
+    $store_fields['wpsl_location_ig'] = array( 
+        'name' => 'location_ig',
+        'type' => 'text'
+    );
+    return $store_fields;
+}
 
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_fb' );
+function custom_frontend_meta_fields_fb( $store_fields ) {
+    $store_fields['wpsl_location_fb'] = array( 
+        'name' => 'location_fb',
+        'type' => 'text'
+    );
+    return $store_fields;
+}
+
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_tw' );
+function custom_frontend_meta_fields_tw( $store_fields ) {
+    $store_fields['wpsl_location_tw'] = array( 
+        'name' => 'location_tw',
+        'type' => 'text'
+    );
+    return $store_fields;
+}
+
+add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields_yt' );
+function custom_frontend_meta_fields_yt( $store_fields ) {
+    $store_fields['wpsl_location_yt'] = array( 
+        'name' => 'location_yt',
+        'type' => 'text'
+    );
+    return $store_fields;
+}
 
 // Use Custom Template for Locations Page
 add_filter( 'wpsl_templates', 'custom_templates', 10 );
@@ -98,7 +143,6 @@ function custom_no_results() {
      */
     $output = '<h2>No Salon in your Area!</h2>';
     $output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p><p>Please contact us at <a href="tel:123456">+123456</a> or <a href="mailto:support@mydomain.com">support@mydomain.com</a>.</p>';
-    $output .= '<img src="http://satyr.io/512x128/f0f?text=Sample+CTA" alt="demo cta banner"/>';
     
     return $output;
 }
@@ -110,10 +154,19 @@ add_filter( 'wpsl_info_window_template', 'custom_listing_template' );
 function custom_listing_template() {
 
     global $wpsl, $wpsl_settings;
-    $listing_template = '<li class="custom-locator cell" data-store-id="<%= id %>">' . "\r\n";
+    $listing_template = '<li class="custom-locator small-12 medium-6 large-4 cell" data-store-id="<%= id %>">' . "\r\n";
     $listing_template .= "\t\t" . '<div class="wpsl-store-location">' . "\r\n";
-    $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
+    //$listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p>' . "\r\n";
     $listing_template .= "\t\t\t\t" . wpsl_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
+
+    $listing_template .= "\t\t\t\t" . '<% if ( location_name ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-location"><%= location_name %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+
+
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-icon"><i class="fa fa-map-marker"></i></span>' . "\r\n";
+
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
@@ -124,12 +177,6 @@ function custom_listing_template() {
         $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
     }
 
-    // Check if the 'appointment_url' contains data before including it.
-    $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %>' . "\r\n";
-    $listing_template .= "\t\t\t" . '<p><a href="<%= appointment_url %>">' . __( 'BOOK NOW!', 'wpsl' ) . '</a></p>' . "\r\n";
-    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
-
-    $listing_template .= "\t\t\t" . '</p>' . "\r\n";
     
      /**
      * Include the data from a custom field called 'my_textinput'.
@@ -144,15 +191,15 @@ function custom_listing_template() {
     //$listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
 
 
-    $listing_template .= "\t\t\t" . '<% if ( terms ) { %>' . "\r\n";
-    $listing_template .= "\t\t\t" . '<p>' . __( 'Categories:', 'wpsl' ) . ' <%= terms %></p>' . "\r\n";
-    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
-
+    //$listing_template .= "\t\t\t" . '<% if ( terms ) { %>' . "\r\n";
+    //$listing_template .= "\t\t\t" . '<p>' . __( 'Categories:', 'wpsl' ) . ' <%= terms %></p>' . "\r\n";
+    //$listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
 
     // Show the phone, fax or email data if they exist.
     if ( $wpsl_settings['show_contact_details'] ) {
         $listing_template .= "\t\t\t" . '<p class="wpsl-contact-details">' . "\r\n";
         $listing_template .= "\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t" . '<span class="wpsl-icon"><i class="fa fa-phone"></i></span>' . "\r\n";
         $listing_template .= "\t\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
         $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
         $listing_template .= "\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
@@ -164,16 +211,47 @@ function custom_listing_template() {
         $listing_template .= "\t\t\t" . '</p>' . "\r\n";
     }
 
+    $listing_template .= "\t\t\t\t" . '<% if ( hours ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<p class="wpsl-calendar-details">' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-icon"><i class="fa fa-clock-o"></i></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<div class="wpsl-store-hours"><%= hours %></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '</p>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+
+    $listing_template .= "\t\t\t\t" . '<ul class="location-social-links">' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( location_ig ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<li><a href="<%= location_ig %>" target="_blank"><img src="' . get_template_directory_uri(). '/assets/images/fg-social-icon-ig-dark.svg"></a></li>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( location_fb ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<li><a href="<%= location_fb %>" target="_blank"><img src="' . get_template_directory_uri(). '/assets/images/fg-social-icon-fb-dark.svg"></a></li>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( location_tw ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<li><a href="<%= location_tw %>" target="_blank"><img src="' . get_template_directory_uri(). '/assets/images/fg-social-icon-tw-dark.svg"></a></li>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( location_yt ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<li><a href="<%= location_yt %>" target="_blank"><img src="' . get_template_directory_uri(). '/assets/images/fg-social-icon-yt-dark.svg"></a></li>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '</ul>' . "\r\n";
+
+    // Check if the 'appointment_url' contains data before including it.
+    $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<br><p><a href="<%= appointment_url %>" class="cta-button" target="_blank">' . __( 'Book An Appointment', 'wpsl' ) . '</a></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '</p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
+
+
+
+
     $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
     $listing_template .= "\t\t" . '</div>' . "\r\n";
-    $listing_template .= "\t\t" . '<div class="wpsl-direction-wrap">' . "\r\n";
+    //$listing_template .= "\t\t" . '<div class="wpsl-direction-wrap">' . "\r\n";
 
-    if ( !$wpsl_settings['hide_distance'] ) {
-        $listing_template .= "\t\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
-    }
+    //if ( !$wpsl_settings['hide_distance'] ) {
+    //    $listing_template .= "\t\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
+    //}
 
-    $listing_template .= "\t\t\t" . '<%= createDirectionUrl() %>' . "\r\n"; 
-    $listing_template .= "\t\t" . '</div>' . "\r\n";
+    //$listing_template .= "\t\t\t" . '<%= createDirectionUrl() %>' . "\r\n"; 
+    //$listing_template .= "\t\t" . '</div>' . "\r\n";
     $listing_template .= "\t" . '</li>';
 
     return $listing_template;
