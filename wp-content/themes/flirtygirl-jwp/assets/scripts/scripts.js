@@ -11,8 +11,21 @@ jQuery('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]').each(function(){i
 Insert Custom JS Below
 */
 
-
-
+// Anchor Link Scroller Script
+jQuery(function() {
+	jQuery('a[href*="#"]:not([href="#"])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = jQuery(this.hash);
+			target = target.length ? target : jQuery('[id=' + this.hash.slice(1) +']');
+			if (target.length) {
+				jQuery('html, body').animate({
+					scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			}
+		}
+	});
+});
 
 
 jQuery(document).ready(function(){
@@ -66,4 +79,28 @@ jQuery(document).ready(function(){
 		autoplayHoverPause:true,
 		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
 	});
+
+	jQuery("#liftcare-carousel").owlCarousel({
+		items:1,
+		loop:true,
+		margin:20,
+		nav:true,
+		//dots:true,
+		autoplay:true,
+		autoplayTimeout:5000,
+		autoplayHoverPause:true,
+		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+	});
+
+	jQuery("#microcare-carousel").owlCarousel({
+		items:1,
+		loop:true,
+		margin:20,
+		nav:true,
+		//dots:true,
+		autoplay:true,
+		autoplayTimeout:5000,
+		autoplayHoverPause:true,
+		navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>']
+	});	
 });

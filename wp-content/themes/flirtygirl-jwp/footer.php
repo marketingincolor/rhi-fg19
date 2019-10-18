@@ -31,9 +31,9 @@
 									if($cta) : ?>
 									<div class="grid-x h-100">
 										<div class="footer-cta-content small-6 align-self-middle">
-											<h3><?php echo $cta['title']; ?></h3>
-											<p><?php echo $cta['text']; ?></p>
-											<p><a href="<?php echo $cta['link']; ?>" class="cta-button" target="_blank" style="color:#000;"><?php echo $cta['button']; ?></a></p>
+											<h2><?php echo $cta['title']; ?></h2>
+											<h5 style="font-size:18px; font-weight:500;"><?php echo $cta['text']; ?></h5>
+											<p><a href="<?php echo $cta['link']; ?>" class="cta-button" target="_blank"><?php echo $cta['button']; ?></a></p>
 										</div>
 									</div>
 									<?php endif; ?>
@@ -71,7 +71,7 @@
 
 							
 							<div class="small-12 medium-12 large-12 text-center cell">
-								<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved. | <a href="<?php echo site_url(); ?>/privacy-policy">Privacy Policy</a></p>
+								<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All Rights Reserved. | <a href="<?php echo site_url(); ?>/terms-conditions">Terms & Conditions</a></p>
 							</div>
 
 						</div> <!-- end #inner-footer -->

@@ -31,8 +31,8 @@ get_header(); ?>
 							<div class="grid-x h-100">
 								<div class="cell align-self-middle">
 									<h4><a href="<?php the_sub_field('service_link'); ?>"><?php the_sub_field('service_title'); ?></a></h4>
-									<p><?php the_sub_field('service_text'); ?></p>
-									<p><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
+									<p class="p3"><?php the_sub_field('service_text'); ?></p>
+									<p style="margin-top:1.5em;"><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
 								</div>
 							</div>
 						</div>
@@ -65,8 +65,8 @@ get_header(); ?>
 							<div class="grid-x h-100">
 								<div class="cell align-self-middle">
 									<h4><a href="<?php the_sub_field('service_link'); ?>"><?php the_sub_field('service_title'); ?></a></h4>
-									<p><?php the_sub_field('service_text'); ?></p>
-									<p><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
+									<p class="p3"><?php the_sub_field('service_text'); ?></p>
+									<p style="margin-top:1.5em;"><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
 								</div>
 							</div>
 						</div>
@@ -99,8 +99,8 @@ get_header(); ?>
 							<div class="grid-x h-100">
 								<div class="cell align-self-middle">
 									<h4><a href="<?php the_sub_field('service_link'); ?>"><?php the_sub_field('service_title'); ?></a></h4>
-									<p><?php the_sub_field('service_text'); ?></p>
-									<p><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
+									<p class="p3"><?php the_sub_field('service_text'); ?></p>
+									<p style="margin-top:1.5em;"><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
 								</div>
 							</div>
 						</div>
@@ -135,14 +135,22 @@ get_header(); ?>
 	<?php get_template_part( 'parts/content', 'aftercare' ); ?>
 <?php endif; ?>
 
+<?php if ( is_page('lash-lift') ) : ?>
+	<?php get_template_part( 'parts/content', 'liftcare' ); ?>
+<?php endif; ?>
+
 <?php if ( is_page('brows') ) : ?>
 	<?php get_template_part( 'parts/content', 'browcare' ); ?>
 <?php endif; ?>
 
+<?php if ( is_page('microblading') ) : ?>
+	<?php get_template_part( 'parts/content', 'microcare' ); ?>
+<?php endif; ?>
+
 	<div class="cta custom-content grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-		    <div class="small-12 medium-12 cell">
-		    	<div class="book-now" id="booknow">
+		    <div class="small-12 medium-12 cell" id="booknow">
+		    	<div class="book-now">
 				<!-- <h1>Book Now!</h1>
 				<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3> -->
 				<!-- <p style="display:inline-block;"><button class="button" data-open="bookModal">Book Now</button></p>	 -->

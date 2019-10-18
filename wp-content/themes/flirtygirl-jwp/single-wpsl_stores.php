@@ -28,9 +28,9 @@ get_header(); ?>
 </section>
 
 <div class="content grid-container wpsl">
-	<div class="inner-content grid-x grid-margin-x grid-padding-x">
-		<div class="main small-12 large-10 large-offset-1 cell">
-		    <section class="entry-content grid-container">
+	<div class="inner-content grid-x Xgrid-margin-x Xgrid-padding-x">
+		<div class="main small-12 cell">
+		    <section class="entry-content Xgrid-container">
 
 				<div class="grid-x grid-margin-x">
 					<div class="location-info small-12 medium-6 cell">
@@ -43,42 +43,58 @@ get_header(); ?>
 	                    setup_postdata( $post );
 	                    //the_content();
 	                    wp_reset_postdata( $post );
-	                    $location_name = get_post_meta( $queried_object->ID, 'wpsl_location_name', true );
-						if ( $location_name ) {
-							echo '<p>' .  $location_name . '</p>';
-						}
-	                    // Add the address shortcode
-	                    echo do_shortcode( '[wpsl_address name="false" country="false"]' );
+	                    $location_name = get_post_meta( $queried_object->ID, 'wpsl_location_name', true ); ?>
 
-	                    // Add the hours shortcode
-	                    echo do_shortcode( '[wpsl_hours]' );
-	                ?>
+						<div class="grid-x">
+							<div class="small-3">
+								<span class="wpsl-icon"><i class="fa fa-map-marker"></i></span><br>
+								<span class="wpsl-icon"><i class="fa fa-phone"></i></span>
+							</div>
+							<div class="small-9">
+	                    <?php if ( $location_name ) {
+							echo '<p>' .  $location_name . '</p>';
+						} ?>	
+	                    <?php // Add the address shortcode
+	                    echo do_shortcode( '[wpsl_address name="false" country="false"]' ); ?>
+								
+							</div>
+							<div class="small-3">
+								<span class="wpsl-icon"><i class="fa fa-clock-o"></i></span>
+							</div>
+							<div class="small-9">
+	                    <?php // Add the hours shortcode
+	                    echo do_shortcode( '[wpsl_hours]' ); ?>
+								
+							</div>
+
+							<div class="small-12">
+								<ul class="location-social-links">
+								<?php 
+								$location_ig = get_post_meta( $queried_object->ID, 'wpsl_location_ig', true );
+								$location_fb = get_post_meta( $queried_object->ID, 'wpsl_location_fb', true );
+								$location_tw = get_post_meta( $queried_object->ID, 'wpsl_location_tw', true );
+								$location_yt = get_post_meta( $queried_object->ID, 'wpsl_location_yt', true );
+								if ( $location_ig ) {
+									echo '<li><a href="' . esc_url( $location_ig ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-ig-dark.svg"></a></li>';
+								}
+								if ( $location_fb ) {
+									echo '<li><a href="' . esc_url( $location_fb ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-fb-dark.svg"></a></li>';
+								}
+								if ( $location_tw ) {
+									echo '<li><a href="' . esc_url( $location_tw ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-tw-dark.svg"></a></li>';
+								}
+								if ( $location_yt ) {
+									echo '<li><a href="' . esc_url( $location_yt ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-yt-dark.svg"></a></li>';
+								} ?>
+								</ul>
+							</div>
+
+						</div>
 
 					<?php $location_name = get_post_meta( $queried_object->ID, 'wpsl_location_name', true );
 					if ( $location_name ) {
 						//echo '<p>' .  $location_name . '</p>';
 					} ?>
-
-					<ul class="location-social-links">
-					<?php 
-					$location_ig = get_post_meta( $queried_object->ID, 'wpsl_location_ig', true );
-					$location_fb = get_post_meta( $queried_object->ID, 'wpsl_location_fb', true );
-					$location_tw = get_post_meta( $queried_object->ID, 'wpsl_location_tw', true );
-					$location_yt = get_post_meta( $queried_object->ID, 'wpsl_location_yt', true );
-					if ( $location_ig ) {
-						echo '<li><a href="' . esc_url( $location_ig ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-ig-dark.svg"></a></li>';
-					}
-					if ( $location_fb ) {
-						echo '<li><a href="' . esc_url( $location_fb ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-fb-dark.svg"></a></li>';
-					}
-					if ( $location_tw ) {
-						echo '<li><a href="' . esc_url( $location_tw ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-tw-dark.svg"></a></li>';
-					}
-					if ( $location_yt ) {
-						echo '<li><a href="' . esc_url( $location_yt ) . '" target="_blank"><img src="' . get_template_directory_uri() . '/assets/images/fg-social-icon-yt-dark.svg"></a></li>';
-					} ?>
-					<ul>
-
 
 					<?php // this will output the "category" assigned to a location, like "Salon" or "Coming Soon"
 						$term_obj_list = get_the_terms( $queried_object->ID, 'wpsl_store_category' );

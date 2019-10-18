@@ -3,7 +3,7 @@
  * Template part for displaying SLIDER images on Home Page
  * slider 
  */
-//global $post;
+$page_slug = get_post_field( 'post_name' );
 $page_hero_title = get_field('hero_title'); //get_the_title($post->ID);
 $page_hero_meta = get_field('hero_description'); //get_the_content($post->ID); 
 $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full'); 
@@ -25,17 +25,19 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
         if (is_array($rowcount)) { $count = count($rowcount); }
 
         while ( have_rows('slider') ) : the_row(); ?>
-
+<?php $button_target = get_sub_field('slide_link_open') ? 'target="_blank"' : ''; ?>
         <li class="orbit-slide">
           <figure class="orbit-figure">
             <img class="orbit-image" src="<?php the_sub_field('slide_image'); ?>" alt="<?php the_sub_field('slide_title'); ?>">
             <figcaption class="orbit-caption grid-x grid-padding-x">
-              <div class="orbit-caption-meta medium-10 medium-offset-1">
-              <h2><?php the_sub_field('slide_title'); ?></h2>
-              <h4><?php the_sub_field('slide_description'); ?></h4>
+              <div class="orbit-caption-meta medium-11 align-self-middle medium-offset-1">
+              <img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
+              <h1 class="indent-rem-22"><?php the_sub_field('slide_title'); ?></h1>
+              <p class="p1 indent-rem-22"><?php the_sub_field('slide_description'); ?></h4>
             <?php if ( get_sub_field('slide_link') ) : ?>
-              <p><a href="<?php the_sub_field('slide_link'); ?>" class="slide-cta-button"><?php the_sub_field('slide_button'); ?></a></p>
+              <p class="indent-rem-22"><a href="<?php the_sub_field('slide_link'); ?>" class="slide-cta-button" <?php echo $button_target;?> ><?php the_sub_field('slide_button'); ?></a></p>
             <?php endif; ?>
+              <img class="bot-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
               </div>
             </figcaption>
           </figure>
@@ -58,25 +60,23 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
       <?php //else : // no rows found ?>
       <?php elseif($page_hero_image) : // no rows found ?>
 
-<section class="page-hero" style="background-image: url(<?php echo $page_hero_image; ?>);">
-<img class="top-sep" src="<?php echo get_template_directory_uri(); ?>/assets/images/sub-page-separator.png" style="display:none;">
+<section class="page-hero grid-container full <?php echo $page_slug; ?>" style="background-image: url(<?php echo $page_hero_image; ?>);">
   <div class="grid-container h-100">
     <div class="grid-x h-100">
-
       <div class="small-10 small-offset-1 medium-6 medium-offset-0 align-self-middle cell">
-
       <?php global $post;     // if outside the loop
       if ( is_page() && $post->post_parent ) { ?>
-        <h4><?php echo $page_hero_meta; ?></h4>
-        <h2><?php echo $page_hero_title; ?></h2>
+<img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png" style="display:none;">
+        <p class="p1 indent-rem-22"><?php echo $page_hero_meta; ?></p>
+        <h1 class="indent-rem-22"><?php echo $page_hero_title; ?></h1>
+<img class="bot-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png" style="display:none;">
       <?php } else { ?>
-        <h2><?php echo $page_hero_title; ?></h2>
-        <h4><?php echo $page_hero_meta; ?></h4>
+<img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
+        <h1 class="indent-rem-22"><?php echo $page_hero_title; ?></h1>
+        <p class="p1 indent-rem-22"><?php echo $page_hero_meta; ?></p>
+<img class="bot-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
       <?php } ?>
-
       </div>
-
-
     </div>
   </div>
 </section>

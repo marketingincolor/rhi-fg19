@@ -10,10 +10,9 @@ $service_text = get_field( "services_text" );
 	<div class="inner-content grid-x grid-margin-x grid-padding-x">
 		<div class="small-12 medium-12 cell">
 			<?php echo do_shortcode('[flourish title="'.$service_headline.'" color="gray" type="h2" alt="false"]'); ?>
-			<h5 class="headline gray"><?php echo $service_text; ?></h5>
-
+			<h4 class="headline gray"><?php echo $service_text; ?></h4>
 		</div>
-		<div class="small-12 medium-10 medium-offset-1 cell">
+		<div class="small-12 medium-10 medium-offset-1 cell p-rem-20">
 			<?php
 			// check if the flexible content field has rows of data
 			if( have_rows('salon_services') ):
@@ -25,8 +24,8 @@ $service_text = get_field( "services_text" );
 						<div class="cell circle-text small-order-1">
 							<div class="circle">
 								<div class="circle-content">
-						        <h3><?php the_sub_field('title'); ?></h3>
-						        <p><?php the_sub_field('description'); ?></p>
+						        <h4><?php the_sub_field('title'); ?></h4>
+						        <p class="p3"><?php the_sub_field('description'); ?></p>
 						        <a href="<?php the_sub_field('link'); ?>" class="cta-button"><?php the_sub_field('button'); ?></a>
 						    	</div>
 							</div>
@@ -51,8 +50,8 @@ $service_text = get_field( "services_text" );
 						<div class="cell circle-text small-order-1 medium-order-3" >
 							<div class="circle">
 								<div class="circle-content">
-							        <h3><?php the_sub_field('title'); ?></h3>
-							        <p><?php the_sub_field('description'); ?></p>
+							        <h4><?php the_sub_field('title'); ?></h4>
+							        <p class="p3"><?php the_sub_field('description'); ?></p>
 							        <a href="<?php the_sub_field('link'); ?>" class="cta-button"><?php the_sub_field('button'); ?></a>
 							    </div>
 					    	</div>

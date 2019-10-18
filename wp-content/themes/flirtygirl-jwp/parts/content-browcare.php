@@ -19,17 +19,21 @@ $browcare_headline = get_field( 'browcare_headline', 'option' );
 				if( have_rows('browcare_carousel', 'option') ):
 				    while ( have_rows('browcare_carousel', 'option') ) : the_row(); ?>
 
-
-					
 					<div class="owl-carousel-container grid-container" style="padding:2em 0em;">
 					<div class="grid-x grid-margin-x grid-padding-x">
 						<div class="small-auto medium-shrink">
 							<img style="padding:0rem 2rem;" src="<?php the_sub_field('slide_image'); ?>">
 						</div>
-						<div class="small-10 small-offset-1 medium-6 medium-offset-0">
-							<h4><?php the_sub_field('slide_title'); ?></h4>
-							<p><?php the_sub_field('slide_content'); ?></p>
-							<p><a href="<?php the_sub_field('slide_link'); ?>" class="cta-button"><?php the_sub_field('slide_button'); ?></a></p>
+						<div class="small-10 small-offset-1 medium-auto medium-offset-0">
+							<div class="grid-x h-100">
+								<div class="cell align-self-middle">
+									<h3 style="font-weight:500;"><?php the_sub_field('slide_title'); ?></h3>
+									<h4 style="font-weight:400;"><?php the_sub_field('slide_content'); ?></h4>
+								</div>
+							</div>
+						</div>
+						<div class="small-12">
+							<p style="width: auto; text-align: center;"><a href="<?php the_sub_field('slide_link'); ?>" class="cta-button"><?php the_sub_field('slide_button'); ?></a></p>
 						</div>
 					</div>
 					</div>

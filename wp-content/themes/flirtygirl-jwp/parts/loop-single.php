@@ -8,11 +8,11 @@
 						
 	<header class="article-header">	
 		<h2 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h2>
-		<?php get_template_part( 'parts/content', 'byline' ); ?>
+		<?php //get_template_part( 'parts/content', 'byline' ); ?>
     </header> <!-- end article header -->
 					
     <section class="entry-content" itemprop="text">
-		<?php the_post_thumbnail('full'); ?>
+		<?php //the_post_thumbnail('full'); ?>
 		<?php the_content(); ?>
 	</section> <!-- end article section -->
 						

@@ -141,8 +141,9 @@ function custom_no_results() {
      * Optionally, instead of the output below, an ACF WYSIWYG component could
      * be substituted to further customize the data.
      */
-    $output = '<h2>No Salon in your Area!</h2>';
-    $output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p><p>Please contact us at <a href="tel:123456">+123456</a> or <a href="mailto:support@mydomain.com">support@mydomain.com</a>.</p>';
+    $output = ' ';
+    //$output = '<h2>No Salon in your Area!</h2>';
+    //$output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p><p>Please contact us at <a href="tel:123456">+123456</a> or <a href="mailto:support@mydomain.com">support@mydomain.com</a>.</p>';
     
     return $output;
 }
@@ -234,8 +235,9 @@ function custom_listing_template() {
     $listing_template .= "\t\t\t\t" . '</ul>' . "\r\n";
 
     // Check if the 'appointment_url' contains data before including it.
-    $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %>' . "\r\n";
-    $listing_template .= "\t\t\t" . '<br><p><a href="<%= appointment_url %>" class="cta-button" target="_blank">' . __( 'Book An Appointment', 'wpsl' ) . '</a></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %><br>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p><a href="<%= appointment_url %>" class="hide-for-medium cta-button" target="_blank">' . __( 'Book Now', 'wpsl' ) . '</a></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p><a href="<%= appointment_url %>" class="show-for-medium cta-button" target="_blank">' . __( 'Book An Appointment', 'wpsl' ) . '</a></p>' . "\r\n";
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
     $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";
 

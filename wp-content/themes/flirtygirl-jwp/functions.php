@@ -46,6 +46,17 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 // Customize the WordPress admin
 // require_once(get_template_directory().'/functions/admin.php'); 
 
+
+// get_id_by_slug('any-page-slug');
+function get_id_by_slug($page_slug) {
+	$page = get_page_by_path($page_slug);
+	if ($page) {
+		return $page->ID;
+	} else {
+		return null;
+	}
+}
+
 //Page Slug Body Class
 function add_slug_body_class( $classes ) {
 global $post;

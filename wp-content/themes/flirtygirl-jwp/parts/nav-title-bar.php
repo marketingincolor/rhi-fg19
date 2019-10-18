@@ -2,9 +2,9 @@
 // Adjust the breakpoint of the title-bar by adjusting this variable
 $breakpoint = "medium"; ?>
 <style>
-.home-icon, .lash-icon, .brow-icon, .loc-icon, .blog-icon { background-repeat: no-repeat; background-position: top center; /*padding-top: 1em;*/ height:50px; }
-.book-icon { background-repeat: no-repeat; padding-left:2rem; background-position: left; height:44px; font-weight:500; display:table; max-width:6em; margin-top:.75em; }
-.book-icon a { color:#fff; font-size:1.375em; }
+.home-icon, .lash-icon, .brow-icon, .loc-icon, .blog-icon { background-repeat: no-repeat; background-position: top center; background-size: auto 26px;/*padding-top: 1em;*/ height:46px; }
+.book-icon { background-repeat: no-repeat; padding-left:1.25rem; background-position: left; height:44px; font-weight:500; display:table; max-width:6em; margin-left:.75rem; }
+.book-icon a { color:#fff; font-size:1.375em; padding:1rem 1rem 1rem 2rem !important; }
 .home-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-home.svg'); }
 .lash-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-lashes.svg'); }
 .brow-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-brows.svg'); }
@@ -12,7 +12,7 @@ $breakpoint = "medium"; ?>
 .loc-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-locations.svg'); }
 .book-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-book-now-icon.svg'); }
 
-.home-icon.current-page-ancestor, .lash-icon.current-page-ancestor, .brow-icon.current-page-ancestor, .blog-icon.current-page-ancestor, .loc-icon.current-page-ancestor, .home-icon.active, .lash-icon.active, .brow-icon.active, .blog-icon.active, .loc-icon.active, .home-icon:hover, .lash-icon:hover, .brow-icon:hover, .blog-icon:hover, .loc-icon:hover, #footer-links .link:hover { filter: invert(0.3) sepia(1) saturate(55) hue-rotate(309.6deg) brightness(0.88); }
+.home-icon.current-page-ancestor, .lash-icon.current-page-ancestor, .brow-icon.current-page-ancestor, .blog-icon.current-page-ancestor, .loc-icon.current-page-ancestor, .home-icon.active, .lash-icon.active, .brow-icon.active, .blog-icon.active, .loc-icon.active, .home-icon:hover, .lash-icon:hover, .brow-icon:hover, .blog-icon:hover, .loc-icon:hover, .site-social a:hover, #footer-links .link:hover { filter: invert(0.3) sepia(1) saturate(75) hue-rotate(309.6deg) brightness(0.88); }
 
 .nav-cta { background-color:#ec008c; float:right; height:100%; }
 .nav-cta-link { padding-top:0 !important; }
@@ -44,7 +44,7 @@ $breakpoint = "medium"; ?>
 				</div>
 
 				<!-- nav cta was here -->
-				<div class="top-bar-alt nav-cta show-for-<?php echo $breakpoint ?>" id="top-bar-menu2" style="position:absolute; top:0px; height:107px; width:24em; right:-12em; padding:1em;">
+				<div class="top-bar-alt nav-cta show-for-<?php echo $breakpoint ?>" id="top-bar-menu2" style="position:absolute; top:0px; height:115px; width:24em; right:-12em; padding:1em;">
 					<ul class="menu"><li class="menu-item book-icon"><a href="#booknow" class="nav-cta-link">BOOK NOW!</a></li></ul>
 				</div>
 

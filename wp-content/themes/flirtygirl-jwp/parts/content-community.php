@@ -8,11 +8,11 @@ $community_headline = get_field( 'community_headline', 'option' );
 ?>
 
 <div class="community">
-	<div class="content grid-container">
+	<div class="NOTcontent grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 			<div class="small-12 medium-12 cell">
 				<?php echo do_shortcode('[flourish title="'.$community_title.'" color="white" type="h2" alt="false"]'); ?>
-				<h3><?php echo $community_headline; ?></h3>
+				<h4 class="wht text-center" style="padding: .75rem 0rem 2rem 0rem;"><?php echo $community_headline; ?></h4>
 				<div id="instagram-carousel" class="owl-carousel">
 				<?php
 				if( have_rows('community_slider', 'option') ):
@@ -31,8 +31,8 @@ $community_headline = get_field( 'community_headline', 'option' );
 
 
 
-				<div class="site-social grid-x grid-margin-x  align-center align-middle">
-					<div class="cell shrink"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-pre.svg" style="padding-right:3em;"></div>
+				<div class="site-social grid-x grid-margin-x align-center align-middle" style="margin-top:1.5em;">
+					<div class="cell shrink show-for-medium"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-pre.svg" style="padding-right:3em;"></div>
 				<?php if( get_field('corporate_instagram', 'option') ): ?>
 				    <div class="cell shrink"><a href="<?php the_field('corporate_instagram', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-ig.svg"></a></div>
 				<?php endif; ?>
@@ -46,7 +46,7 @@ $community_headline = get_field( 'community_headline', 'option' );
 				<?php if( get_field('corporate_youtube', 'option') ): ?>
 				    <div class="cell shrink"><a href="<?php the_field('corporate_youtube', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-yt.svg"></a></div>
 				<?php endif; ?>
-					<div class="cell shrink"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-post.svg" style="padding-left:3em;"></div>
+					<div class="cell shrink show-for-medium"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fg-social-icon-post.svg" style="padding-left:3em;"></div>
 				</div>
 
 

@@ -37,8 +37,8 @@ get_header(); ?>
 <?php endif; ?>
 
 
-<?php if (!is_page('locations')) : ?>
-	<div class="cta content grid-container">
+<?php if ( !is_page('locations') ) : ?>
+	<div class="cta notcontent grid-container">
 
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 

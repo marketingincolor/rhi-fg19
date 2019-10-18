@@ -29,7 +29,7 @@
 	    <?php } ?>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-		<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/a4e9168323.css">
 		
@@ -37,7 +37,23 @@
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/styles/owl.theme.default.min.css" />
 		<script>templateURL = '<?php bloginfo("template_directory"); ?>';</script>
 		<?php wp_head(); ?>
+<script>
+let anchorlinks = document.querySelectorAll('a[href^="#"]')
+ 
+for (let item of anchorlinks) { // relitere 
+    item.addEventListener('click', (e)=> {
+        let hashval = item.getAttribute('href')
+        let target = document.querySelector(hashval)
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+        history.pushState(null, null, hashval)
+        e.preventDefault()
+    })
+}
 
+</script>
 	</head>
 			
 	<body <?php body_class(); ?>>
