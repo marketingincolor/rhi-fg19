@@ -30,10 +30,10 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
           <figure class="orbit-figure">
             <img class="orbit-image" src="<?php the_sub_field('slide_image'); ?>" alt="<?php the_sub_field('slide_title'); ?>">
             <figcaption class="orbit-caption grid-x grid-padding-x">
-              <div class="orbit-caption-meta medium-11 align-self-middle medium-offset-1">
+              <div class="orbit-caption-meta small-11 medium-11 align-self-middle medium-offset-1">
               <img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
               <h1 class="indent-rem-22"><?php the_sub_field('slide_title'); ?></h1>
-              <p class="p1 indent-rem-22"><?php the_sub_field('slide_description'); ?></h4>
+              <p class="show-for-medium p1 indent-rem-22"><?php the_sub_field('slide_description'); ?></h4>
             <?php if ( get_sub_field('slide_link') ) : ?>
               <p class="indent-rem-22"><a href="<?php the_sub_field('slide_link'); ?>" class="slide-cta-button" <?php echo $button_target;?> ><?php the_sub_field('slide_button'); ?></a></p>
             <?php endif; ?>
@@ -48,7 +48,7 @@ $page_hero_image = get_the_post_thumbnail_url($post->ID, 'full');
 
       </ul>
     </div>
-    <nav class="orbit-bullets">
+    <nav class="orbit-bullets show-for-medium">
       <?php for($i=1; $i<=$count; $i++){ $j=$i-1; ?>
           <button data-slide="<?php echo $j; ?>"><span class="show-for-sr">Slide details</span></button>
       <?php } ?>

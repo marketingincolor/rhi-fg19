@@ -1,32 +1,12 @@
 <?php
 // Adjust the breakpoint of the title-bar by adjusting this variable
 $breakpoint = "medium"; ?>
-<style>
-.home-icon, .lash-icon, .brow-icon, .loc-icon, .blog-icon { background-repeat: no-repeat; background-position: top center; background-size: auto 26px;/*padding-top: 1em;*/ height:46px; }
-.book-icon { background-repeat: no-repeat; padding-left:1.25rem; background-position: left; height:44px; font-weight:500; display:table; max-width:6em; margin-left:.75rem; }
-.book-icon a { color:#fff; font-size:1.375em; padding:1rem 1rem 1rem 2rem !important; }
-.home-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-home.svg'); }
-.lash-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-lashes.svg'); }
-.brow-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-brows.svg'); }
-.blog-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-blog.svg'); }
-.loc-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-sitenav-icon-locations.svg'); }
-.book-icon { background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/fg-book-now-icon.svg'); }
-
-.home-icon.current-page-ancestor, .lash-icon.current-page-ancestor, .brow-icon.current-page-ancestor, .blog-icon.current-page-ancestor, .loc-icon.current-page-ancestor, .home-icon.active, .lash-icon.active, .brow-icon.active, .blog-icon.active, .loc-icon.active, .home-icon:hover, .lash-icon:hover, .brow-icon:hover, .blog-icon:hover, .loc-icon:hover, .site-social a:hover, #footer-links .link:hover { filter: invert(0.3) sepia(1) saturate(75) hue-rotate(309.6deg) brightness(0.88); }
-
-.nav-cta { background-color:#ec008c; float:right; height:100%; }
-.nav-cta-link { padding-top:0 !important; }
-
-.menu-item.current-page-item {  }
-.menu-item.current-page-ancestor {  }
-.menu-item.current-page-ancestor a { color:#ec008c; }
-</style>
 <div class="grid-container">
 	<div class="grid-x Xalign-center Xgrid-margin-x Xgrid-padding-x">
-		<div class="small-12">
+		<div class="small-11">
 
 			<div class="title-bar" data-responsive-toggle="top-bar-menu" data-hide-for="<?php echo $breakpoint ?>">
-				<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;"></a><br>
+				<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo-retina.png 2x"></a><br>
 				<div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
 				<button class="menu-icon" type="button" data-toggle></button>
 			</div>
@@ -36,10 +16,10 @@ $breakpoint = "medium"; ?>
 				<div class="top-bar-left show-for-<?php echo $breakpoint ?>">
 					<ul class="menu">
 						<!-- <li><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li> -->
-						<li><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;"></a></li>
+						<li><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo-retina.png 2x"></a></li>
 					</ul>
 				</div>
-				<div class="top-bar-right" style="padding-right:200px;">
+				<div class="top-bar-right">
 					<?php joints_top_nav(); ?>
 				</div>
 

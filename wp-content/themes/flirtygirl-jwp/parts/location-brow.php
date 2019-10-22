@@ -24,13 +24,13 @@ $queried_object = get_queried_object();
 	font-size:18px;
 	line-height:1.2;
 }
-.brow-details { min-height:850px; }
+.brow-details { height:850px; }
 </style>
 <div class="brow-details">
-	<div class="content grid-container wpsl">
-		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-			<div class="main small-12 large-6 text-center cell">
-				<h2>Eyebrow Product Section</h2>
+	<div class="content grid-container h-100 wpsl">
+		<div class="inner-content grid-x grid-margin-x grid-padding-x h-100">
+			<div class="main small-12 large-6 text-center cell align-self-middle">
+				<h2>Brow Services</h2>
 				<h4 style="font-style:italic;"><span class="show-for-large">Hover over</span><span class="hide-for-large">Click on</span> any of our lash set and services for more details</h4>
 				<div class="grid-x grid-margin-x grid-margin-y grid-padding-x grid-padding-y text-center align-center small-up-2 medium-up-3">
 
@@ -45,7 +45,7 @@ $queried_object = get_queried_object();
 				<?php
 				$appointment_url = get_post_meta( $queried_object->ID, 'wpsl_appointment_url', true );
 				if ( $appointment_url ) {
-				  echo '<p class="m-rem-20"><a href="' . esc_url( $appointment_url ) . '" class="cta-button" target="_blank">' . __( 'BOOK AN APPOINTMENT!', 'wpsl' ) . '</a></p>';
+				  echo '<p class="m-rem-20" style="padding-top:1rem;"><a href="' . esc_url( $appointment_url ) . '" class="cta-button" target="_blank">' . __( 'BOOK AN APPOINTMENT!', 'wpsl' ) . '</a></p>';
 				}
 				?>
 

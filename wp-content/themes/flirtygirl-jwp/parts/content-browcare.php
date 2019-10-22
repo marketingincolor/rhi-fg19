@@ -11,7 +11,7 @@ $browcare_headline = get_field( 'browcare_headline', 'option' );
 <div class="aftercare">
 	<div class="custom-content grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-			<div class="small-12 medium-12 cell">
+			<div class="small-11 medium-12 cell">
 				<?php echo do_shortcode('[flourish title="'.$browcare_title.'" color="black" type="h2" alt="false"]'); ?>
 				<h3 class="text-center"><?php echo $browcare_headline; ?></h3>
 				<div id="browcare-carousel" class="owl-carousel">

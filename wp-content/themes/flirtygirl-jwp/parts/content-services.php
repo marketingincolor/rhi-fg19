@@ -8,11 +8,11 @@ $service_text = get_field( "services_text" );
 ?>
 <div class="services content grid-container">
 	<div class="inner-content grid-x grid-margin-x grid-padding-x">
-		<div class="small-12 medium-12 cell">
+		<div class="small-11 medium-12 cell">
 			<?php echo do_shortcode('[flourish title="'.$service_headline.'" color="gray" type="h2" alt="false"]'); ?>
 			<h4 class="headline gray"><?php echo $service_text; ?></h4>
 		</div>
-		<div class="small-12 medium-10 medium-offset-1 cell p-rem-20">
+		<div class="small-11 medium-10 medium-offset-1 cell p-rem-20">
 			<?php
 			// check if the flexible content field has rows of data
 			if( have_rows('salon_services') ):
@@ -65,18 +65,6 @@ $service_text = get_field( "services_text" );
 			    // no layouts found
 			endif;
 			?>
-
-
-
-
-
-
-
-
-
-
-
-
 
 		</div>
 	</div>

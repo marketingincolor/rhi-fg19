@@ -142,8 +142,8 @@ function custom_no_results() {
      * be substituted to further customize the data.
      */
     $output = ' ';
-    //$output = '<h2>No Salon in your Area!</h2>';
-    //$output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p><p>Please contact us at <a href="tel:123456">+123456</a> or <a href="mailto:support@mydomain.com">support@mydomain.com</a>.</p>';
+    $output = '<h2>No Salon in your Area!</h2>';
+    $output .= '<p>Sorry, but there is no Flirty Girl Salon near you YET!</p>';
     
     return $output;
 }

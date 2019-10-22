@@ -14,6 +14,7 @@ get_header(); ?>
     <div class="grid-x h-100">
 
       <div class="small-10 small-offset-1 medium-5 medium-offset-0 align-self-middle cell">
+      	<img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
         <h2><?php single_post_title(); ?></h2>
 		<h4><?php global $post;
       	$queried_object = get_queried_object();
@@ -21,6 +22,7 @@ get_header(); ?>
 		setup_postdata( $post );
 		the_content();
 		wp_reset_postdata( $post );?></h4>
+		<img class="bot-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
       </div>
 
     </div>
@@ -68,7 +70,7 @@ get_header(); ?>
 							</div>
 
 							<div class="small-12">
-								<ul class="location-social-links">
+								<ul class="location-social-links grid-x align-justify">
 								<?php 
 								$location_ig = get_post_meta( $queried_object->ID, 'wpsl_location_ig', true );
 								$location_fb = get_post_meta( $queried_object->ID, 'wpsl_location_fb', true );
@@ -113,14 +115,14 @@ get_header(); ?>
 	</div> <!-- end #inner-content -->
 </div> <!-- end #content -->
 
+<?php $appointment_url = get_post_meta( $queried_object->ID, 'wpsl_appointment_url', true );
+if ( $appointment_url ) { ?>
 <div class="location-book">
 	<div class="location-content grid-container wpsl book-cta">
-		<?php $appointment_url = get_post_meta( $queried_object->ID, 'wpsl_appointment_url', true );
-		if ( $appointment_url ) {
-			echo '<h3><a href="' . esc_url( $appointment_url ) . '" class="NOTcta-button" target="_blank"><img src="'. get_template_directory_uri() .'/assets/images/fg-book-now-icon.svg">&nbsp;' . __( 'BOOK NOW', 'wpsl' ) . '</a></h3>';
-		} ?>
+		<?php echo '<h3><a href="' . esc_url( $appointment_url ) . '" class="NOTcta-button" target="_blank"><img src="'. get_template_directory_uri() .'/assets/images/fg-book-now-icon.svg">&nbsp;' . __( 'BOOK NOW', 'wpsl' ) . '</a></h3>'; ?>
 	</div>
 </div>
+<?php } ?>
 
 
 <?php get_template_part( 'parts/location', 'eyelash' ); ?>
@@ -128,7 +130,7 @@ get_header(); ?>
 <?php get_template_part( 'parts/location', 'brow' ); ?>
 
 <div class="location-book" style="min-height:350px;">
-	<div class="book-layer show-for-medium">&nbsp;</div>
+	<div class="REMOVEbook-layer show-for-medium">&nbsp;</div>
 	<div class="book-content grid-container wpsl" class="book-now" id="booknow">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 			<div class="main small-12 medium-8 medium-offset-4 large-8 large-offset-2 cell">

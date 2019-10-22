@@ -60,8 +60,13 @@ for (let item of anchorlinks) { // relitere
 
 		<div class="off-canvas-wrapper">
 			
-			<!-- Load off-canvas container. Feel free to remove if not using. -->			
+		<?php //if ( wp_is_mobile() ) { ?>
+			<!-- Load off-canvas container. Feel free to remove if not using. -->		
 			<?php get_template_part( 'parts/content', 'offcanvas' ); ?>
+		<?php //} else { ?>
+
+		<?php //} ?>
+
 			
 			<div class="off-canvas-content" data-off-canvas-content>
 				

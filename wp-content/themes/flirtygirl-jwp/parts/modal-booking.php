@@ -16,7 +16,13 @@
 				    	<div class="book-now" id="modalbooknow">
 						<h1>Book Now!</h1>
 						<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3>
-						<?php echo do_shortcode('[wpsl auto_locate="true" template="custom"]'); ?>
+
+					<?php if ( wp_is_mobile() ) { ?>
+						<?php echo do_shortcode('[wpsl auto_locate="false" template="custom"]'); ?>
+					<?php } else { ?>
+						<h4>(mobile form not available for desktop users)</h4>
+					<?php } ?>
+
 						</div>
 					</div>
 

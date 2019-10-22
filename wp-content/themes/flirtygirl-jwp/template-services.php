@@ -14,14 +14,14 @@ get_header(); ?>
 
 	<?php if( have_rows('eyelash_extensions') ): ?>
 	<div class="service-grid content grid-container">
-		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 align-center text-center">
+		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 XXXalign-center text-center">
 
-			<div class="small-12 medium-12 cell">
+			<div class="small-11 medium-12 cell">
 				<?php echo do_shortcode('[flourish title="'.$extension_name.'" color="gray" type="h2"]'); ?>
 			</div>
 
 		<?php while ( have_rows('eyelash_extensions') ) : the_row(); ?>
-		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-11 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -48,14 +48,14 @@ get_header(); ?>
 
 	<?php if( have_rows('eyelash_enhancements') ): ?>
 	<div class="service-grid content grid-container">
-		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 align-center text-center">
+		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 XXXalign-center text-center">
 
-			<div class="small-12 medium-12 cell">
+			<div class="small-11 medium-12 cell">
 				<?php echo do_shortcode('[flourish title="'.$enhancement_name.'" color="gray" type="h2"]'); ?>
 			</div>
 
 		<?php while ( have_rows('eyelash_enhancements') ) : the_row(); ?>
-		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-11 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -82,14 +82,14 @@ get_header(); ?>
 
 	<?php if( have_rows('brow_services') ): ?>
 	<div class="service-grid content grid-container">
-		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 align-center text-center">
+		<div class="inner-content grid-x grid-margin-x grid-padding-x XXXsmall-up-1 XXXmedium-up-3 XXXalign-center text-center">
 
-			<div class="small-12 medium-12 cell">
+			<div class="small-11 medium-12 cell">
 				<?php echo do_shortcode('[flourish title="'.$brow_service_name.'" color="gray" type="h2"]'); ?>
 			</div>
 
 		<?php while ( have_rows('brow_services') ) : the_row(); ?>
-		    <div class="cell small-10 small-offset-0 medium-6 large-4 circle-text">
+		    <div class="cell small-11 small-offset-0 medium-6 large-4 circle-text">
 		    	<div class="pic-circle">
 				    <a href="<?php the_sub_field('service_link'); ?>"><img src="<?php the_sub_field('service_image'); ?>"></a>
 		    	</div>
@@ -112,23 +112,14 @@ get_header(); ?>
 	</div>
     <?php else : endif; ?>
 
-
 	<div class="content grid-container">
-	
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-	
-		    <main class="main small-12 medium-10 medium-offset-1 cell" role="main">
-				
+		    <main class="main small-11 medium-10 medium-offset-1 cell" role="main">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
 			    	<?php get_template_part( 'parts/loop', 'services' ); ?>
-			    
-			    <?php endwhile; endif; ?>							
-			    					
+			    <?php endwhile; endif; ?>										
 			</main> <!-- end #main -->
-		    
 		</div> <!-- end #inner-content -->
-
 	</div> <!-- end #content -->
 
 <?php if ( is_page('lashes') ) : ?>
@@ -147,6 +138,8 @@ get_header(); ?>
 	<?php get_template_part( 'parts/content', 'microcare' ); ?>
 <?php endif; ?>
 
+<?php if ( wp_is_mobile() ) { ?>
+<?php } else { ?>
 	<div class="cta custom-content grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 		    <div class="small-12 medium-12 cell" id="booknow">
@@ -161,5 +154,6 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
+<?php } ?>
 
 <?php get_footer(); ?>

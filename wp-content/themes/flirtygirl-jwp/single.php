@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<div class="inner-content grid-x grid-margin-x grid-padding-x">
 
-		<main class="main small-12 large-10 large-offset-1 cell" role="main">
+		<main class="main small-11 large-10 large-offset-1 cell" role="main">
 		
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
@@ -34,11 +34,11 @@ get_header(); ?>
 <section class="related-content grid-container p-rem-20">
 	<div class="inner-content grid-x grid-margin-x grid-padding-x">
 
-		<div class="small-12 medium-12 cell">
+		<div class="small-11 medium-12 cell">
 			<?php echo do_shortcode('[flourish title="Check Out These Related Posts" color="gray" type="h2"]'); ?>
 		</div>
 
-		<div class="small-12 medium-12 cell">
+		<div class="small-11 medium-12 cell">
 		    <div class="grid-x grid-margin-x grid-padding-x grid-padding-y grid-margin-y archive-grid" data-equalizer>
 		<?php
 		$args = array( 'posts_per_page' => 3, 'post__not_in' => array( get_the_ID() ), 'category_name' => 'blog',  );
@@ -64,5 +64,5 @@ get_header(); ?>
 
 	</div>
 </section>
-
+<div id="booknow"></div>
 <?php get_footer(); ?>
