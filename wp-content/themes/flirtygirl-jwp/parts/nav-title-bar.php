@@ -6,9 +6,9 @@ $breakpoint = "medium"; ?>
 		<div class="small-11">
 
 			<div class="title-bar" data-responsive-toggle="top-bar-menu" data-hide-for="<?php echo $breakpoint ?>">
-				<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo-retina.png 2x"></a><br>
-				<div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
-				<button class="menu-icon" type="button" data-toggle></button>
+				<span class="img"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo.png" style="clear:both; display:inherit; margin:auto;" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/flirty-header-logo-retina.png 2x"></a></span><br>
+				<span class="txt"><div class="title-bar-title"><?php _e( 'Menu', 'jointswp' ); ?></div>
+				<button class="menu-icon" type="button" data-toggle></button></span>
 			</div>
 
 

@@ -18,7 +18,7 @@
 							
 							<div class="small-11 medium-4 large-4 cell footbox">
 								<div class="inner-footbox">
-								<nav role="navigation" style="margin-left:25%; padding-top:25%;">
+								<nav role="navigation">
 		    						<?php joints_footer_links(); ?>
 		    					</nav>
 		    					</div>
@@ -30,7 +30,7 @@
 									<?php $cta = get_field('giftcard', 'option');
 									if($cta) : ?>
 									<div class="grid-x h-100">
-										<div class="footer-cta-content small-6 align-self-middle">
+										<div class="footer-cta-content small-7 align-self-middle">
 											<h2><?php echo $cta['title']; ?></h2>
 											<h5 style="font-size:18px; font-weight:500;"><?php echo $cta['text']; ?></h5>
 											<p><a href="<?php echo $cta['link']; ?>" class="cta-button" target="_blank"><?php echo $cta['button']; ?></a></p>

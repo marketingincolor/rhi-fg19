@@ -13,7 +13,7 @@ get_header(); ?>
 	<section class="page-hero grid-container full" style="background-image: url(<?php echo $alt_page_hero_image; ?>);">
 	  <div class="grid-container h-100">
 	    <div class="grid-x h-100">
-	      <div class="small-10 small-offset-1 medium-6 medium-offset-0 align-self-middle cell">
+	      <div class="small-11 medium-6 medium-offset-0 align-self-middle cell">
 	      	<img class="top-sep show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/sep-gray-right.png">
 	        <h1 class="indent-rem-22"><?php echo $page_hero_title; ?></h1>
 	        <p class="p1 indent-rem-22"><?php echo $page_hero_meta; ?></p>
@@ -26,7 +26,7 @@ get_header(); ?>
 
 <div class="content grid-container">
 	<div class="inner-content grid-x grid-margin-x grid-padding-x" style="padding-bottom:2rem;">
-	    <main class="main small-12 medium-12 cell" role="main">
+	    <main class="main small-11 medium-12 cell" role="main">
 			<?php $args = array('post_type' => 'post');
 			$post_query = new WP_Query($args); ?>
 
@@ -38,7 +38,7 @@ get_header(); ?>
 				<?php endif; ?> 
 
 					<!--Item: -->
-					<div class="small-12 medium-4 large-4 cell panel" data-equalizer-watch>
+					<div class="small-11 medium-4 large-4 cell panel" data-equalizer-watch>
 						<article id="post-<?php the_ID(); ?>" <?php post_class('text-center'); ?> role="article">
 							<section class="featured-image" itemprop="text">
 								<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_post_thumbnail('full'); ?></a>

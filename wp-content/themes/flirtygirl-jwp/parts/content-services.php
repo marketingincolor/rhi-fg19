@@ -23,17 +23,17 @@ $service_text = get_field( "services_text" );
 					<div class="service-section grid-x grid-margin-x grid-margin-y small-up-1 medium-up-3 align-middle align-stretch">
 						<div class="cell circle-text small-order-1">
 							<div class="circle">
-								<div class="circle-content">
-						        <h4><?php the_sub_field('title'); ?></h4>
-						        <p class="p3"><?php the_sub_field('description'); ?></p>
-						        <a href="<?php the_sub_field('link'); ?>" class="cta-button"><?php the_sub_field('button'); ?></a>
-						    	</div>
+								<div class="circle-content"><div class="grid-x h-100"><div class="cell align-self-middle">
+						        	<h4><?php the_sub_field('title'); ?></h4>
+						        	<p class="p3"><?php the_sub_field('description'); ?></p>
+						        	<a href="<?php the_sub_field('link'); ?>" class="cta-button"><?php the_sub_field('button'); ?></a>
+						    	</div></div></div>
 							</div>
 						</div>
-						<div class="cell circle-image small-order-2">
+						<div class="show-for-medium cell circle-image small-order-2">
 							<a href="<?php the_sub_field('link'); ?>"><img class="circle" src="<?php the_sub_field('photo_1'); ?>" alt=""></a>
 						</div>
-						<div class="cell circle-image small-order-3">
+						<div class="show-for-medium cell circle-image small-order-3">
 							<a href="<?php the_sub_field('link'); ?>"><img class="circle" src="<?php the_sub_field('photo_2'); ?>" alt=""></a>
 						</div>
 					</div>
@@ -41,19 +41,19 @@ $service_text = get_field( "services_text" );
 
 			        if( get_row_layout() == 'brows' ):?>
 					<div class="service-section grid-x grid-margin-x grid-margin-y small-up-1 medium-up-3 align-middle align-stretch">
-						<div class="cell circle-image small-order-3 medium-order-1">
+						<div class="show-for-medium cell circle-image small-order-3 medium-order-1">
 							<a href="<?php the_sub_field('link'); ?>"><img class="circle" src="<?php the_sub_field('photo_1'); ?>" alt=""></a>
 						</div>
-						<div class="cell circle-image small-order-2 medium-order-2">
+						<div class="show-for-medium cell circle-image small-order-2 medium-order-2">
 							<a href="<?php the_sub_field('link'); ?>"><img class="circle" src="<?php the_sub_field('photo_2'); ?>" alt=""></a>
 						</div>
 						<div class="cell circle-text small-order-1 medium-order-3" >
 							<div class="circle">
-								<div class="circle-content">
+								<div class="circle-content"><div class="grid-x h-100"><div class="cell align-self-middle">
 							        <h4><?php the_sub_field('title'); ?></h4>
 							        <p class="p3"><?php the_sub_field('description'); ?></p>
 							        <a href="<?php the_sub_field('link'); ?>" class="cta-button"><?php the_sub_field('button'); ?></a>
-							    </div>
+							    </div></div></div>
 					    	</div>
 						</div>
 					</div>

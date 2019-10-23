@@ -8,6 +8,7 @@ $enhancement_field = get_field_object('eyelash_enhancements');
 $enhancement_name = $enhancement_field['label'];
 $services_field = get_field_object('brow_services');
 $brow_service_name = $services_field['label'];
+$center_mobile = wp_is_mobile() ? 'text-center' : '';
 get_header(); ?>
 
 	<?php get_template_part( 'parts/content', 'slider' ); ?>
@@ -113,7 +114,7 @@ get_header(); ?>
     <?php else : endif; ?>
 
 	<div class="content grid-container">
-		<div class="inner-content grid-x grid-margin-x grid-padding-x">
+		<div class="inner-content grid-x grid-margin-x grid-padding-x <?php echo $center_mobile; ?>">
 		    <main class="main small-11 medium-10 medium-offset-1 cell" role="main">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			    	<?php get_template_part( 'parts/loop', 'services' ); ?>
@@ -142,7 +143,7 @@ get_header(); ?>
 <?php } else { ?>
 	<div class="cta custom-content grid-container">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-		    <div class="small-12 medium-12 cell" id="booknow">
+		    <div class="small-11 medium-12 cell" id="booknow">
 		    	<div class="book-now">
 				<!-- <h1>Book Now!</h1>
 				<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3> -->

@@ -4,7 +4,7 @@
  *
  * This is the template that displays all pages by default.
  */
-
+$center_mobile = wp_is_mobile() ? 'text-center' : '';
 get_header(); ?>
 
 	<?php get_template_part( 'parts/content', 'slider' ); ?>
@@ -63,7 +63,7 @@ get_header(); ?>
 		<div class="inner-content grid-x grid-margin-x grid-padding-x">
 
 		    <div class="small-11 medium-12 cell">
-		    	<div class="info-form">
+		    	<div class="info-form <?php echo $center_mobile;?>">
 		    		<h3>Want to know when a Flirty Girl opens near you?</h3>
 		    		<p>We're growing and a location might be opening soon near you. Fill out the short form below and we'll give you a shout when a location opens near you.</p>
 				<?php echo do_shortcode('[ninja_form id=2]'); ?>
