@@ -3,6 +3,7 @@
  * Off Canvas Booking content
  *
  */
+$classes = get_body_class();
 ?>
 <div class="grid-container">
 	<div class="grid-x align-center grid-margin-x grid-padding-x">
@@ -17,7 +18,7 @@
 						<h1>Book Now!</h1>
 						<h3>Enter your zipcode and we'll locate a Flirty Girl Location near you.</h3>
 
-					<?php if ( wp_is_mobile() ) { ?>
+					<?php if ( wp_is_mobile() && !in_array ('single-wpsl_stores',$classes) ) { ?><?php //if(in_array ('single-wpsl_stores',$classes) ) { ?>
 						<?php echo do_shortcode('[wpsl auto_locate="false" template="custom"]'); ?>
 					<?php } else { ?>
 						<h4>(mobile form not available for desktop users)</h4>

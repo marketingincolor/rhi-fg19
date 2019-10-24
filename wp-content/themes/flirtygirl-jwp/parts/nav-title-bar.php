@@ -1,4 +1,5 @@
 <?php
+$classes = get_body_class();
 // Adjust the breakpoint of the title-bar by adjusting this variable
 $breakpoint = "medium"; ?>
 <div class="grid-container">
@@ -34,7 +35,13 @@ $breakpoint = "medium"; ?>
 
 		<div class="main-booking-cta small-1 show-for-small-only pnk-bgnd" style="height:100vh; position:fixed; right:0; top:0; z-index:20;">
 			<div style="transform:rotate(-90deg); width:100vh; height:100%;">
+
+			<?php if(in_array ('single-wpsl_stores',$classes) ) { ?>
+				<h3 style="text-align:center; color:#fff;">BOOK NOW</h3>
+			<?php } else { ?>
 				<h3 data-toggle="off-canvas" style="text-align:center; color:#fff;">BOOK NOW</h3>
+			<?php } ?>
+
 			</div>
 		</div>
 

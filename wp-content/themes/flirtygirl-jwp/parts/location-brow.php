@@ -29,7 +29,7 @@ $queried_object = get_queried_object();
 <div class="brow-details">
 	<div class="content grid-container h-100 wpsl">
 		<div class="inner-content grid-x grid-margin-x grid-padding-x h-100">
-			<div class="main small-12 large-6 text-center cell align-self-middle">
+			<div class="main small-11 large-6 text-center cell align-self-middle">
 				<h2>Brow Services</h2>
 				<h4 style="font-style:italic;"><span class="show-for-large">Hover over</span><span class="hide-for-large">Click on</span> any of our lash set and services for more details</h4>
 				<div class="grid-x grid-margin-x grid-margin-y grid-padding-x grid-padding-y text-center align-center small-up-2 medium-up-3">

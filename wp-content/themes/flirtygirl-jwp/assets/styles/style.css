@@ -628,7 +628,7 @@ WP STORE LOCATOR CUSTOMZATIONS
 #wpsl-search-wrap input#wpsl-search-input { text-align:center; border-radius:50px; height:28px; border:1px solid rgb(100, 100, 100); background-color: rgb(245, 245, 245); }
 #wpsl-wrap #wpsl-result-list li.custom-locator { padding:1.5em !important; }
 .single-wpsl_stores .wpsl.content { margin-bottom:4em; }
-.single-wpsl_stores .location-info { font-size:20px; border:3px solid #ababab; padding:2rem 4rem; }
+.single-wpsl_stores .location-info { font-size:20px; border:3px solid #ababab; }
 .single-wpsl_stores .location-info .fa { font-size:1.5em; }
 .single-wpsl_stores .location-map {}
 .single-wpsl_stores .location-map .wpsl-gmap-canvas { border:3px solid #ababab; }
@@ -643,7 +643,7 @@ WP STORE LOCATOR CUSTOMZATIONS
 .wpsl-no-results-msg { width:100%; text-align:center; }
 
 #wpsl-wrap #wpsl-result-list li { border-bottom:unset;  }
-#wpsl-base-gmap_0 {height:100% !important; }
+#wpsl-base-gmap_0 {height:auto; }
 
 /*********************
 ORBIT SLIDER
@@ -774,8 +774,17 @@ MEDIA QUERIES
   #browcare-carousel .owl-prev, #browcare-carousel .owl-next { padding:0em 2em !important; }
   #microcare-carousel .owl-prev, #microcare-carousel .owl-next { padding:0em 2em !important; }
   #liftwcare-carousel .owl-prev, #liftwcare-carousel .owl-next { padding:0em 2em !important; }
+  .eyelash-details { background-position:top right; }
+  .brow-details { background-position:top left; }
   .footer nav .menu li { width:100%; }
   .footer .footbox .inner-footbox nav { margin-left:initial; text-align:center; }
+  .single-wpsl_stores .location-info { padding:.5rem; }
+  #wpsl-base-gmap_0 { height:initial; }
+  .wpsl-icon { font-size:1em; }
+  table.wpsl-opening-hours  { font-size:.75em !important; }
+  .location-book h3 { padding-left:0rem; }
+  .location-social-links li { display: inline; padding: .25em; }
+  .brow-details { height: auto !important; }
 } 
 
 /* min-width 641px, medium screens */
@@ -797,6 +806,15 @@ MEDIA QUERIES
   #browcare-carousel .owl-prev, #browcare-carousel .owl-next { padding:0; }
   #microcare-carousel .owl-prev, #microcare-carousel .owl-next { padding:0; }
   #liftcare-carousel .owl-prev, #liftcare-carousel .owl-next { padding:0; }
+  .eyelash-details { background-position:top left; }
+  .brow-details { background-position:top right; }
+  .single-wpsl_stores .location-info { padding:2rem 4rem; }
+  #wpsl-base-gmap_0 { height:100% !important; }
+  .wpsl-icon { font-size:2em; }
+  table.wpsl-opening-hours  { font-size:inherit; }
+  .location-book h3 { padding-left:1rem; }
+  .location-social-links li { display: inline; padding: 1em; }
+  .brow-details { height: 850px !important; }
 }
 
 /* min-width 1025px, large screens */
