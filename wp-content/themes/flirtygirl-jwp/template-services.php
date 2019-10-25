@@ -67,7 +67,14 @@ get_header(); ?>
 								<div class="cell align-self-middle">
 									<h4><a href="<?php the_sub_field('service_link'); ?>"><?php the_sub_field('service_title'); ?></a></h4>
 									<p class="p3"><?php the_sub_field('service_text'); ?></p>
-									<p style="margin-top:1.5em;"><a href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
+
+
+
+<?php if (wp_is_mobile() && get_sub_field('service_button') == 'Book Now' ) { $trigger = 'data-toggle="off-canvas"'; } else { $trigger = 'data-false'; } ?>
+
+
+
+									<p style="margin-top:1.5em;"><a <?php echo $trigger; ?> href="<?php the_sub_field('service_link'); ?>" class="cta-button"><?php the_sub_field('service_button'); ?></a></p>
 								</div>
 							</div>
 						</div>
